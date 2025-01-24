@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fonte Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">     
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/cursos.css">
+    <link rel="stylesheet" href="css/landing.css">
+    <link rel="stylesheet" href="css/quemSomos.css">
+    <link rel="stylesheet" href="css/pacientemodelo.css">
+    <!-- Aba -->
+    <link rel="icon" href="assets/favicon.png">
+    <title>Move</title>
+</head>
+<body onload="diferenciais()">
+    <main id="background">
+        <!-- Header -->
+        <header class="header">
+            <div>
+                <a href="index.html"><div class="logo" id="div-logo"><img src="assets/logo.png" ></div></a>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li><a href="#scroll-cursos" onclick="scrollIntoView()">Nossos cursos</a></li>
+                    <li><a href="#quem-somos" onclick="scrollIntoView()">Quem somos</a></li>  
+                    <li><a href="#diferenciais" onclick="scrollIntoView()">Diferenciais</a></li>  
+                    <li><a href="#pacientemodelo" onclick="scrollIntoView()">Paciente modelo</a></li>
+                    <li><a href="#pacientemodelo" onclick="scrollIntoView()">Área do aluno</a></li>
+                </ul>
+            </div>
+        </header>
+        <!-- Frase da landing page -->
+        <div id="div-texto"><center class="texto" id="texto">A excelência é conquistada <br>através da prática constante</center><br></div>
+    <!-- Fim da landing page -->
+    </main>
+    <nav  id="scroll-cursos">
+        <br><br>
+        <center><hr></center> <!-- Linha separadora -->
+        <br>
+        <!-- Começo cursos -->
+        <center>
+            <div class="cursos" id="cursos">
+                <div class="cursos-titulo">
+                    <div onclick="mudarCursos(0)" id="imersao" value="1">Imersão</div><div class="linha-vertical"></div><div onclick="mudarCursos(1)" id="outros" value="0">Outros</div> 
+                </div><br>
+                <div class="cursos-imagens" id="cursos-imagens">
+                    <div><img onclick="mostrarDescricao(0)" src="assets/harmonizacaofacial.jpg"></div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="fecharModal()">&times;</span>
+                    <h2 id="modal-title"></h2>
+                    <p id="modal-description"></p>
+                </div>
+            <!-- Fim Modal -->
+            </div>
+        <!-- Fim cursos -->
+        </center>
+        <!-- Começo Quem somos -->
+        
+        <div class="quem-somos" id="quem-somos">
+            <br><center>
+                <div id="titulo-quem-somos">Quem somos</div>
+                <hr class="linha-titulo">
+            </center>
+            <div class="sessao-quem-somos">
+                <img src="assets/lais.jpg">
+                <div class="subsessao-quem-somos">
+                    Pós Graduada em tricologia clínica pela ENATI, com especializações no Brasil e exterior Laís concretiza um sonho que envolve duas paixões, a conjunção entre o mundo do bem estar com atendimento à pacientes e a área de ensino.
+            A divulgação dos conhecimentos com cursos de capacitação profissionais é considerado por ela o seu propósito e também a sua paixão.<br><br><p>Laís Loraine<div>CEO e fundadora da Move Medical</div></p>
+                </div>
+            </div>
+            <div class="sessao-quem-somos">
+                <div class="subsessao-quem-somos">
+                    Pós-Graduada em Biomedicina Esteta pela ISEEC, Helena é formada em Estética e Biomedicina Esteta pela Universidade do Vale do Itajaí. Habilitada em técnicas avançadas, como Line Skin e Endolaser, atua como professora na Residência em Harmonização Facial do Instituto Move Medical, unindo sua paixão por capacitar profissionais e transformar vidas na área estética.<br><br><p>Helena Rescaroli<div>Co-fundadora da Move Medical</div></p>
+                </div>
+                <img src="assets/helena.jpg">
+            </div>
+        <!-- Fim Quem Somos -->
+        </div>
+        
+        <br>
+        <!-- Começo Diferenciais -->
+        <div class="diferenciais" id="diferenciais">
+            <center>
+                <br>
+                <div class="diferenciais-titulo">Diferenciais</div>
+                <center><hr class="linha-titulo"></center>
+                <div class="image-grid" id="image-grid">
+
+                </div>
+            </center>
+        <!-- Fim Diferenciais -->
+        </div>
+        <div class="pacientemodelo" id="pacientemodelo">
+            <center id="titulo-pacientemodelo">Seja paciente modelo<br><hr class="linha-titulo">
+            <p>Experimente tratamentos estéticos avançados realizados por profissionais em formação, sempre acompanhados por especialistas experientes da equipe Move Medical. Uma oportunidade única para elevar sua autoestima enquanto apoia o desenvolvimento de futuros profissionais altamente capacitados em harmonização facial.</p></center>
+        <br><div id="vantagens"><br>
+                <div>
+                    <center>
+                        <div>
+                            <img src="assets/icons8-estrela.gif"><br>
+                        </div>
+                        <h3>Procedimento de alta qualidade</h3>
+                        <p></p>
+                    </center>
+                </div>
+                <div>
+                    <center>
+                        <img src="assets/"><br>
+                        <h3>Supervisão de especialistas</h3>
+                        <p></p>
+                    </center>
+                </div>
+                <div>
+                    <center>
+                        <img src="assets/iconnota.png" id="nota"><br>
+                        <h3>Custo benefício</h3>
+                        <p></p>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <div class="depoimentos">
+            
+        </div>
+    </nav>
+    <footer>
+        <center id="footer-titulo">Contate o suporte</center>
+        <center>
+            <form>
+                <input id="email" name="email" placeholder="E-mail" type="email">
+                <input id="nome" name="nome" placeholder="Nome" type="text">
+                <input id="mensagem" name="mensagem" placeholder="Mensagem" type="text"> 
+                <button>Enviar</button>
+            </form>
+            <hr>
+            <div class="informacoes">
+                <div>Rua Miguel Matte n687, Edifício Evolution Corporate<br><br>Bairro Pioneiros, Balneário Camboriú - SC, 88331 - 030<br><br>Telefone: +55 (47) 99616-0560<br><br>E-mail: marketing@movemedical.com.br</div>
+                <div>
+                    <center id="redes">
+                        Redes sociais<br><a href="https://www.instagram.com/move.medical?igsh=MXJ4NXZ1cTR4bHRkZw%3D%3D&utm_source=qr"><img src="assets/iconinstagram.png"></a> &nbsp&nbsp<a href="https://www.tiktok.com/@move.medical?_t=ZM-8tGPtzKThDy&_r=1 "><img src="assets/icontiktok.png"></a><br>
+                    </center>
+                    <a href=""><img src=""></a>
+                </div>
+                <div style="text-align: end;">Clinica Lais Loraine Move Medical LTDA<br><br>CNPJ 46.976.124/0001-08<br></div>
+            </div>
+        </center>
+        
+    </footer>
+    <!-- START Widget WhastApp hospedagemwordpresspro -->
+    <a href="https://api.whatsapp.com/send?phone=5547996160560&text=Olá! Gostaria de saber mais sobre os cursos..." id="waurlsite" class="bt-whatsApp" target="_blank" style="right:25px; position:fixed;width:60px;height:60px;bottom:40px;z-index:100;">
+        <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxLjQxNDIxOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxMDAlIiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnNlcmlmPSJodHRwOi8vd3d3LnNlcmlmLmNvbS8iIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cmVjdCBoZWlnaHQ9IjI0IiBpZD0iQXJ0Ym9hcmQxIiBzdHlsZT0iZmlsbDpub25lOyIgd2lkdGg9IjI0IiB4PSIwIiB5PSIwIi8+PGc+PGc+PHBhdGggZD0iTTQuMDE4LDE3LjA0OGMtMC45NiwtMS40ODQgLTEuNTE4LC0zLjI1MyAtMS41MTgsLTUuMTUxYzAsLTUuMjQzIDQuMjU3LC05LjUgOS41LC05LjVjNS4yNDMsMCA5LjUsNC4yNTcgOS41LDkuNWMwLDUuMjQzIC00LjI1Nyw5LjUgLTkuNSw5LjVjLTEuNzc3LDAgLTMuNDQsLTAuNDg5IC00Ljg2MywtMS4zMzlsLTQuNjM3LDEuNTQ1bDEuNTE4LC00LjU1NVoiIHN0eWxlPSJmaWxsOiNmM2YzZjM7Ii8+PHBhdGggZD0iTTUuNzk1LDE2LjMwNGMtMC44ODYsLTEuMjQ0IC0xLjQwNywtMi43NjUgLTEuNDA3LC00LjQwN2MwLC00LjIwMSAzLjQxMSwtNy42MTIgNy42MTIsLTcuNjEyYzQuMjAxLDAgNy42MTIsMy40MTEgNy42MTIsNy42MTJjMCw0LjIwMSAtMy40MTEsNy42MTEgLTcuNjEyLDcuNjExYy0xLjU5LDAgLTMuMDY2LC0wLjQ4OCAtNC4yODgsLTEuMzIzbC0yLjg2MiwwLjk1NGwwLjk0NSwtMi44MzVaIiBzdHlsZT0iZmlsbDojMDBhODJkOyIvPjwvZz48cGF0aCBkPSJNOS43MTQsMTMuODczYy0xLjEyNCwtMS4zNzQgLTEuODc0LC0zLjA1NiAtMi4xMDksLTQuODhjLTAuMDYzLC0wLjUwOCAwLjEwNiwtMS4wMTggMC40NjEsLTEuMzg3YzAuMzU1LC0wLjM2OSAwLjg1OCwtMC41NTggMS4zNjgsLTAuNTE1bDAuMDQ5LDAuMDA1YzAsMCAwLjU2MSwwLjE1IDAuODY4LDAuMjMzYzAuMTIyLDAuMDMzIDAuMjE5LDAuMTI0IDAuMjYsMC4yNDNjMC4xMzgsMC40MSAwLjQ2NCwxLjM3MyAwLjYxOCwxLjgyNmMwLjA1LDAuMTQ3IDAuMDA0LDAuMzEgLTAuMTE0LDAuNDFjLTAuMjMzLDAuMTk2IC0wLjYxOCwwLjUyIC0wLjg1OCwwLjcyM2MtMC4xMjksMC4xMDkgLTAuMTcsMC4yOSAtMC4xLDAuNDQzYzAuMjc5LDAuNjA4IDAuNjM1LDEuMTc2IDEuMDU3LDEuNjljMC40MzQsMC41MDIgMC45MzMsMC45NDkgMS40ODUsMS4zMjdjMC4xNCwwLjA5NSAwLjMyNSwwLjA4NSAwLjQ1NCwtMC4wMjRjMC4yNDEsLTAuMjAyIDAuNjI2LC0wLjUyNiAwLjg1OCwtMC43MjJjMC4xMTksLTAuMSAwLjI4NywtMC4xMTcgMC40MjQsLTAuMDQzYzAuNDIsMC4yMjggMS4zMTQsMC43MTIgMS42OTQsMC45MThjMC4xMTEsMC4wNiAwLjE4NSwwLjE3MiAwLjE5NiwwLjI5N2MwLjAyOSwwLjMxNyAwLjA4MywwLjg5NSAwLjA4MywwLjg5NWwtMC4wMDQsMC4wNDljLTAuMDQ0LDAuNTEgLTAuMzE1LDAuOTc0IC0wLjczOSwxLjI2MWMtMC40MjQsMC4yODggLTAuOTU1LDAuMzY4IC0xLjQ0NSwwLjIyYy0xLjc3MiwtMC41NDUgLTMuMzEzLC0xLjU4MSAtNC40NzksLTIuOTM3bC0wLjAyNywtMC4wMzJaIiBzdHlsZT0iZmlsbDojZjNmM2YzOyIvPjwvZz48L3N2Zz4=" alt="Ícone do Whatsapp" width="70px">
+    </a>
+    <script type="text/javascript">function showIt2() {document.getElementById("msg1").style.visibility = "visible";}    setTimeout("showIt2()", 5000); function hiddenIt() {document.getElementById("msg1").style.visibility = "hidden";}setTimeout("hiddenIt()", 15000); function showIt3() {document.getElementById("msg1").style.visibility = "visible";} setTimeout("showIt3()", 25000);  msg1.onclick = function() {document.getElementById('msg1').style.visibility = "hidden"; };function alertW() { document.getElementById("alertWapp").style.visibility = "visible";	} setTimeout("alertW()", 15000); </script>
+    <!-- END Widget WhastApp -->
+<script src="index.js"></script>
+</body>
+</html>

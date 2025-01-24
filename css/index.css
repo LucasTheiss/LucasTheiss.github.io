@@ -1,0 +1,141 @@
+*{
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+    font-weight: thin;
+    font-style: normal;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    line-height: 1.6;
+}
+
+hr{
+    border-top: 0.5px solid rgba(24,164,199,255);
+    width: 80%;
+    /* border: none; */
+}
+
+.linha-vertical{
+    border-left: 1px solid rgba(24,164,199,255);
+    width: 1px;
+}
+
+/* Diferenciais */
+
+.diferenciais-titulo{
+    text-transform: uppercase;
+    margin-bottom: 0px;
+}
+
+.image-grid{
+    width: 75%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 10px;
+    padding: 10px;
+}
+
+.image-grid img{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: 0.8s;
+}
+
+.image-grid img:hover{
+    /* cursor: pointer; */
+    transform: scale(1.05);
+}
+
+.linha-titulo{
+    width: 10rem;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer{
+    color: white;
+    padding: 50px;
+    background: rgb(0,65,80);
+    background: linear-gradient(159deg, rgba(0,65,80,1) 0%, rgba(8,140,171,1) 61%, rgba(14,172,208,1) 100%);    
+}
+
+#footer-titulo{
+    font-size: 1.5rem;
+}
+
+form{
+    margin: 20px 20px 50px;
+}
+
+.informacoes{
+    font-size: 0.85rem;
+    margin: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.informacoes div {
+    width: 33%;
+}
+
+#redes{
+    margin-top: 20%;
+    display: block;
+    justify-content: center;
+    text-align: center;
+}
+
+#redes a img{
+    margin-top: 7px;
+    width: 28px;
+    border-radius: 10px;
+    filter: invert(1);
+}
+
+input[type='text'], input[type='email']{
+    width: 250px;
+    height: 25px;
+    background-color: rgb(90, 90, 90);
+    border: none;
+    color: lightgray;
+    padding-left: 5px;
+}
+
+input::placeholder{
+    color: lightgray;
+}
+
+input:focus{
+    border: none;
+    outline: none;
+}
+
+button{
+    background-color: rgb(54, 168, 183);
+    width: 250px;
+    height: 25px;
+    border: none;
+    transition: 0.5s;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: rgb(78, 190, 202);
+}
+
+@media (max-width: 958px){
+    .informacoes{
+        padding: 0;
+        margin: 0;
+    }
+}

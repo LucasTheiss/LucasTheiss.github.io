@@ -1,0 +1,78 @@
+/* Cursos */
+.cursos-titulo{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+#outros {
+    opacity: 0.5;
+}
+#outros, #imersao{
+    transition: 0.3s;
+}
+
+.cursos-titulo div{
+    cursor: pointer;
+}
+
+.cursos-imagens{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 30px
+}
+
+.cursos-imagens div{
+    cursor: pointer;
+}
+
+.cursos-imagens div img{
+    border-radius: 10px;
+}
+
+.cursos-imagens img{
+    max-width: 450px;
+    height: 350px;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1; 
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+
+.modal-content {
+    color: rgb(10, 27, 86);
+    background-color: rgba(255,255,255,0.8);
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

@@ -1,0 +1,38 @@
+#titulo-pacientemodelo{
+    margin-top: 40px;
+    text-transform: uppercase;
+}
+
+.pacientemodelo p{
+    text-transform: none;
+    text-align: center;
+    width: 62%;
+}
+
+#vantagens{
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+    /* overflow: hidden; */
+}
+
+#vantagens div{
+    text-align: center;
+    width: 33%;
+    overflow: hidden;
+}
+
+#vantagens img{
+    width: 50px;
+
+}
+
+#vantagens #nota{
+    width: 200px;
+    height: 50px;   
+    object-fit: cover;
+}
+
+#vantages div center{
+    overflow: hidden;
+}
