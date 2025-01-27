@@ -3,42 +3,72 @@
     text-transform: uppercase;
 }
 
-.pacientemodelo p{
-    text-transform: none;
-    text-align: center;
-    width: 62%;
-    margin-bottom: 30px;
+.pacientemodelo{
+    margin-top: 100px;
+    margin-bottom: 80px;
+
+    & p{
+        text-transform: none;
+        text-align: center;
+        width: 62%;
+        margin-bottom: 30px;
+    }
 }
 
 #vantagens{
     display: flex;
     justify-content: space-around;
     gap: 40px;
-    /* overflow: hidden; */
+
+    & div{
+        text-align: center;
+        width: 33%;
+        overflow: hidden;
+    }
+
+    & img{
+        width: 50px;
+    
+    }
+
+    & #nota{
+        width: 200px;
+        height: 50px;   
+        object-fit: cover;
+    }
+
+    & div center{
+        overflow: hidden;
+    }
 }
 
-#vantagens div{
-    text-align: center;
-    width: 33%;
-    overflow: hidden;
-}
+@media (max-width: 958px){
+    .pacientemodelo{
+        & p{
+            width: 85%;
+        }
+    }
 
-#vantagens img{
-    width: 50px;
+    #vantagens{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0px auto;
 
-}
+        & div{
+            text-align: center;
+            width: 85%;
+            overflow: hidden;
+        }
 
-#vantagens #nota{
-    width: 200px;
-    height: 50px;   
-    object-fit: cover;
-}
+        & img{
+            width: 100px;
+        }
 
-#vantages div center{
-    overflow: hidden;
-}
-
-.pacientemodelo{
-    margin-top: 100px;
-    margin-bottom: 80px;
+        & #nota{
+            width: 300px;
+            height: 50px;   
+            object-fit: cover;
+        }
+    }
 }

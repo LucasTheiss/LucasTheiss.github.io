@@ -4,6 +4,10 @@
     text-align: center;
     justify-content: center;
     gap: 40px;
+
+    & div{
+        cursor: pointer;
+    }
 }
 
 #outros {
@@ -13,28 +17,24 @@
     transition: 0.3s;
 }
 
-.cursos-titulo div{
-    cursor: pointer;
-}
-
 .cursos-imagens{
     display: flex;
     justify-content: center;
     text-align: center;
-    gap: 30px
-}
+    gap: 30px;
 
-.cursos-imagens div{
-    cursor: pointer;
-}
+    & div{
+        cursor: pointer;
+    }
 
-.cursos-imagens div img{
-    border-radius: 10px;
-}
+    & div img{
+        border-radius: 10px;
+    }
 
-.cursos-imagens img{
-    max-width: 450px;
-    height: 350px;
+    img{
+        max-width: 450px;
+        height: 350px;
+    }
 }
 
 /* Modal */

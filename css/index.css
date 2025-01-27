@@ -38,21 +38,22 @@ hr{
 .image-grid{
     width: 65%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    justify-items: center;
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
     gap: 10px;
-    padding: 10px;
-}
+    padding: 0px;
 
-.image-grid img{
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    transition: 0.8s;
-}
+    & img{
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        transition: 0.8s;
+    }
 
-.image-grid img:hover{
-    /* cursor: pointer; */
-    transform: scale(1.05);
+    & img:hover{
+        /* cursor: pointer; */
+        transform: scale(1.05);
+    }
 }
 
 .linha-titulo{
@@ -82,10 +83,10 @@ form{
     display: flex;
     justify-content: space-between;
     text-align: left;
-}
 
-.informacoes div {
-    width: 33%;
+    & div {
+        width: 33%;
+    }
 }
 
 #redes{
@@ -93,13 +94,13 @@ form{
     display: block;
     justify-content: center;
     text-align: center;
-}
-
-#redes a img{
-    margin-top: 7px;
-    width: 28px;
-    border-radius: 10px;
-    filter: invert(1);
+    
+    & a img{
+        margin-top: 7px;
+        width: 28px;
+        border-radius: 10px;
+        filter: invert(1);
+    }
 }
 
 input[type='text'], input[type='email']{
@@ -137,5 +138,11 @@ button:hover{
     .informacoes{
         padding: 0;
         margin: 0;
+    }
+
+    .image-grid {
+        width: 95%;
+        grid-template-columns: repeat(2, 1fr);  
+        padding: 0;
     }
 }

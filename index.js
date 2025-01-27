@@ -30,43 +30,45 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     })
 
+    // if (window.innerWidth >= 958){
     // Função para mudar o fundo da pagina inicial infinitamente
-    function switchBackground() {
-        var background = document.getElementById("background");
-        var divTexto = document.getElementById('div-texto');
+        function switchBackground() {
+            var background = document.getElementById("background");
+            var divTexto = document.getElementById('div-texto');
 
-        var backgrounds = [
-            'assets/background1.png',
-            'assets/background2.png'
-        ]
+            var backgrounds = [
+                'assets/background1.png',
+                'assets/background2.png'
+            ]
 
-        var textos = [
-            '<center class="texto" id="texto">A excelência é conquistada <br>através da prática constante</center>',
-            '<center class="texto" id="texto">Mova-se com a <span style="color: rgb(0, 213, 255)">Move</span></center><br>',
-        ]
+            var textos = [
+                '<center class="texto" id="texto">A excelência é conquistada <br>através da prática constante</center>',
+                '<center class="texto" id="texto">Mova-se com a <span style="color: rgb(0, 213, 255)">Move</span></center><br>',
+            ]
 
-        var currentIndex = 1;
+            var currentIndex = 1;
 
-        function updateContent() {
-            background.style.opacity = 0.8;
-            divTexto.style.opacity = 0.8;
-
-            setTimeout(function() {
-                background.style.backgroundImage = `url(${backgrounds[currentIndex]})`;
-                divTexto.innerHTML = textos[currentIndex];
+            function updateContent() {
+                background.style.opacity = 0.8;
+                divTexto.style.opacity = 0.8;
 
                 setTimeout(function() {
-                    background.style.opacity = 1;
-                    divTexto.style.opacity = 1;
-                }, 150);
+                    background.style.backgroundImage = `url(${backgrounds[currentIndex]})`;
+                    divTexto.innerHTML = textos[currentIndex];
 
-                currentIndex = (currentIndex + 1) % backgrounds.length;
-            }, 50);
+                    setTimeout(function() {
+                        background.style.opacity = 1;
+                        divTexto.style.opacity = 1;
+                    }, 150);
+
+                    currentIndex = (currentIndex + 1) % backgrounds.length;
+                }, 50);
+            }
+
+            setInterval(updateContent, 7000);
         }
-
-        setInterval(updateContent, 7000);
-    }
-    switchBackground()
+        switchBackground()
+    // }
 })
 
 function mudarCursos(num){

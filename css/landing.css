@@ -31,6 +31,7 @@ main{
     main {
         padding: 0px; /* Reduz o espaçamento interno */
         width: 100%;
+        background-position: center center;
     }
     #waurlsite{
         display: none;
