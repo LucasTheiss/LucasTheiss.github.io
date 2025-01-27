@@ -90,7 +90,7 @@ form{
 }
 
 #redes{
-    margin-top: 20%;
+    margin-top: 30px;
     display: block;
     justify-content: center;
     text-align: center;
@@ -134,6 +134,10 @@ button:hover{
     background-color: rgb(78, 190, 202);
 }
 
+#right-side-desktop{
+    text-align: end;
+}
+
 @media (max-width: 958px){
     .informacoes{
         padding: 0;
@@ -144,5 +148,39 @@ button:hover{
         width: 95%;
         grid-template-columns: repeat(2, 1fr);  
         padding: 0;
+    }
+
+    footer{
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    form{}
+
+    .informacoes{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: 20px 0 0 0;
+
+        & div {
+            width: 100%;
+        }
+    }
+
+    .mobile-no-display{
+        display: none;
+    }
+
+    #redes{
+        margin: 0;
+    }
+
+    #right-side-desktop{
+        text-align: center;
+        margin: 0 0 0 0;
     }
 }
