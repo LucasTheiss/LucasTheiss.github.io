@@ -48,23 +48,31 @@
         <center>
             <div class="cursos" id="cursos">
                 <div class="cursos-titulo">
-                    <div onclick="mudarCursos(0)" id="imersao" value="1">Imersão</div><div class="linha-vertical"></div><div onclick="mudarCursos(1)" id="outros" value="0">Outros</div> 
-                </div><br>
+                    <div onclick="mudarCursos(0)" id="imersao" value="1">Imersão</div>
+                    <div class="linha-vertical"></div>
+                    <div onclick="mudarCursos(1)" id="outros" value="0">Outros</div>
+                </div>
+                <br>
                 <div class="cursos-imagens" id="cursos-imagens">
-                    <div><img onclick="mostrarDescricao(0)" src="assets/harmonizacaofacial.jpg"></div>
+                    <div>
+                        <img onclick="mostrarDescricao(1)" src="assets/cursos/harmonizacaofacial.jpg" alt="Curso 1">
+                    </div>
+                </div>
+                <div class="navigation">
+                    <button onclick="slideAnterior()">&#9664; Anterior</button>
+                    <button onclick="proximoSlide()">Próximo &#9654;</button>
                 </div>
             </div>
-            <!-- Modal -->
-            <div id="myModal" class="modal">
-                <div class="modal-content">
-                    <span class="close" onclick="fecharModal()">&times;</span>
-                    <h2 id="modal-title"></h2>
-                    <p id="modal-description"></p>
-                </div>
-            <!-- Fim Modal -->
-            </div>
-        <!-- Fim cursos -->
         </center>
+        <!-- Modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="fecharModal()">&times;</span>
+                <h2 id="modal-title"></h2>
+                <p id="modal-description"></p>
+            </div>
+        <!-- Fim Modal -->
+        </div>
         <!-- Começo Quem somos -->
         
         <div class="quem-somos" id="quem-somos">

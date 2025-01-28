@@ -17,24 +17,37 @@
     transition: 0.3s;
 }
 
-.cursos-imagens{
+.cursos-imagens {
     display: flex;
+    align-items: center;
     justify-content: center;
-    text-align: center;
     gap: 30px;
+    overflow-x: auto; 
+    scroll-behavior: smooth; 
 
-    & div{
+    & div {
+        flex-shrink: 0;
+        overflow: hidden;
+    }
+
+    & img {
+        border-radius: 10px;
+        height: 350px;
         cursor: pointer;
     }
+}
 
-    & div img{
-        border-radius: 10px;
-    }
+.cursos-imagens::-webkit-scrollbar {
+    height: 8px; 
+}
 
-    img{
-        max-width: 450px;
-        height: 350px;
-    }
+.cursos-imagens::-webkit-scrollbar-thumb {
+    background: #aaa;
+    border-radius: 4px;
+}
+
+.navigation{
+    display: none;
 }
 
 /* Modal */
@@ -70,9 +83,67 @@
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.close:hover, .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+@media (max-width: 958px) {
+    .carousel-container {
+        position: relative;
+        width: 100%;
+        max-width: 300px;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+    .carousel-track {
+        display: flex;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .carousel-slide {
+        min-width: 100%;
+        user-select: none;
+    }
+
+    .carousel-slide img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .cursos-imagens{    
+        overflow-x: hidden; 
+
+        & div{
+            /* max-width: 100%; */
+        }
+
+        & img{
+            height: 550px;
+        }
+    }
+
+    .navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+
+        & button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        & button:hover {
+            background-color: #0056b3;
+        }
+    }
 }

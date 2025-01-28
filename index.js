@@ -1,37 +1,35 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Quando carrega o html, define variaveis para o hover dos cursos acontecer adequadamente
-    var outros = document.getElementById('outros') 
-    var imersao = document.getElementById('imersao')
+    if (window.innerWidth > 958){
+        var outros = document.getElementById('outros') 
+        var imersao = document.getElementById('imersao')
 
-    outros.value = 0 // Mantém uma variável para o hover
-    imersao.value = 1
+        outros.value = 0 // Mantém uma variável para o hover
+        imersao.value = 1
 
-    outros.addEventListener('mouseover', function () {
-        if (outros.value == 0) {
-            outros.style.opacity = 1
-        }
-    })
+        outros.addEventListener('mouseover', function () {
+            if (outros.value == 0) {
+                outros.style.opacity = 1
+            }
+        })
 
-    outros.addEventListener('mouseout', function () {
-        if (outros.value == 0) {
-            outros.style.opacity = 0.5
-        }
-    })
+        outros.addEventListener('mouseout', function () {
+            if (outros.value == 0) {
+                outros.style.opacity = 0.5
+            }
+        })
 
-    imersao.addEventListener('mouseover', function () {
-        if (imersao.value == 0) {
-            imersao.style.opacity = 1
-        }
-    })
+        imersao.addEventListener('mouseover', function () {
+            if (imersao.value == 0) {
+                imersao.style.opacity = 1
+            }
+        })
 
-    imersao.addEventListener('mouseout', function () {
-        if (imersao.value == 0) {
-            imersao.style.opacity = 0.5
-        }
-    })
-
-    // if (window.innerWidth >= 958){
-    // Função para mudar o fundo da pagina inicial infinitamente
+        imersao.addEventListener('mouseout', function () {
+            if (imersao.value == 0) {
+                imersao.style.opacity = 0.5
+            }
+        })
         function switchBackground() {
             var background = document.getElementById("background");
             var divTexto = document.getElementById('div-texto');
@@ -68,23 +66,43 @@ document.addEventListener('DOMContentLoaded', function () {
             setInterval(updateContent, 7000);
         }
         switchBackground()
-    // }
+    }
 })
+
+let currentIndex = 0 
+let cursosImagens = document.getElementById("cursos-imagens")
+let slides = cursosImagens.children
+
+function mostrarImagemAtual() {
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = i === currentIndex ? "block" : "none"
+    }
+}
+function proximoSlide() {
+    currentIndex = (currentIndex + 1) % slides.length
+    mostrarImagemAtual();
+}
+function slideAnterior() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length
+    mostrarImagemAtual()
+}
+mostrarImagemAtual()
 
 function mudarCursos(num){
     // Renderiza os cursos conforme a aba selecionada
-    var cursoImagens = document.getElementById('cursos-imagens')
-
-    if (num == 0){
+    let cursoImagens = document.getElementById('cursos-imagens')
+    let cursos
+    if (num == 0){ // Imersão
+        cursos = [// Nome das imagems dos cursos
+            'harmonizacaofacial'
+        ]
         outros.style.opacity = 0.5 
         imersao.style.opacity = 1
 
         outros.value = 0 // Value mantem uma variavel para saber qual versao da aba cursos esta ativada
         imersao.value = 1
-
-        cursoImagens.innerHTML = '<div onclick="mostrarDescricao(1)"><img src="assets/harmonizacaofacial.jpg"></div>'
     }
-    else if (num == 1){
+    else if (num == 1){ // Outros
         cursos = [// Nome das imagems dos cursos
             'botox', 
             'harmonizacaofacial-mini', 
@@ -96,15 +114,20 @@ function mudarCursos(num){
 
         outros.value = 1
         imersao.value = 0
-
-        cursoImagens.innerHTML = ''
-        for (var i = 0, l = cursos.length; i < l; i++){
-            cursoImagens.innerHTML += `<div onclick="mostrarDescricao(${i + 1})"><img src="assets/${cursos[i]}.jpg"></div>`
-        }
+    }
+    cursoImagens.innerHTML = '' 
+    for (let i = 0, l = cursos.length; i < l; i++){
+        cursoImagens.innerHTML += `<div><img onclick="mostrarDescricao(${i + 1})" src="assets/cursos/${cursos[i]}.jpg"></div>`
+    }
+    // Verifica se é celular
+    if (window.innerWidth <= 958){
+        currentIndex = 0
+        cursosImagens = document.getElementById("cursos-imagens")
+        slides = cursosImagens.children
+        mostrarImagemAtual()
     }
 }
 
-// Função para mostrar a descrição no modal
 function mostrarDescricao(num) {
     var modal = document.getElementById('myModal');
     var title = document.getElementById('modal-title');
@@ -129,13 +152,11 @@ function mostrarDescricao(num) {
     modal.style.display = "block";
 }
 
-// Função para fechar o modal
 function fecharModal() {
     var modal = document.getElementById('myModal');
     modal.style.display = "none";
 }
 
-// Fecha o modal quando o usuário clicar fora da janela do modal
 window.onclick = function(event) {
     var modal = document.getElementById('myModal');
     if (event.target == modal) {
@@ -144,7 +165,6 @@ window.onclick = function(event) {
 }
 
 function diferenciais(){
-    // Renderiza a aba de diferenciais
     var diferenciais = document.getElementById('image-grid')
     for (i = 0; i < 6; i++){
         diferenciais.innerHTML += `<img src="assets/diferencial${i + 1}.png">`
