@@ -105,14 +105,13 @@
     .carousel-slide {
         min-width: 100%;
         user-select: none;
-    }
 
-    .carousel-slide img {
-        width: 100%;
-        height: auto;
-        display: block;
+        & img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
     }
-
     .cursos-imagens{    
         overflow-x: hidden; 
 
@@ -130,14 +129,14 @@
         text-align: center;
         justify-content: center;
         position: absolute;
-        top: 1300px;
+        top: 140vh;
         left: 0;
         right: 0;
         display: flex;
         justify-content: space-between; 
         transform: translateY(-50%); 
         width: 100%;
-        padding: 0 10px 0 10px;
+        padding: 0 6px 0 6px;
 
         & button {
             background-color: rgba(0, 0, 0, 0.1);
