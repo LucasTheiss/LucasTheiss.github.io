@@ -5,9 +5,10 @@ main{
     background-image: url(/assets/background1.png);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center center;
     transition: background-image 0.2s ease, opacity 0.2s ease;
     color: rgb(255, 255, 255);
-    min-height: 100vh
+    min-height: 100vh;
 }
 
 .texto{
@@ -29,9 +30,7 @@ main{
     }
 
     main {
-        padding: 0px; /* Reduz o espaçamento interno */
-        width: 100%;
-        background-position: center center;
+        padding: 0px;
     }
     #waurlsite{
         display: none;
