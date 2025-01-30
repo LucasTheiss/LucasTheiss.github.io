@@ -1,0 +1,36 @@
+{
+    "curso": [
+        { 
+            "id": 1, 
+            "nome": "Botox", 
+            "imagem": "botox.jpg" 
+        },
+        { 
+            "id": 2, 
+            "nome": "Harmonização Facial Mini", 
+            "imagem": "harmonizacaofacial-mini.jpg" 
+        },
+        { 
+            "id": 3, 
+            "nome": "Rinomodelação", 
+            "imagem": "rinomodelacao.jpg" 
+        },
+        { 
+            "id": 4, 
+            "nome": "Rinomodelação", 
+            "imagem": "rinomodelacao.jpg" 
+        },
+        { 
+            "id": 5, 
+            "nome": "Rinomodelação", 
+            "imagem": "rinomodelacao.jpg" 
+        }
+    ],
+    "imersao": [
+        { 
+            "id": 1, 
+            "nome": "Harmonização Facial", 
+            "imagem": "harmonizacaofacial.jpg" 
+        }
+    ]
+}

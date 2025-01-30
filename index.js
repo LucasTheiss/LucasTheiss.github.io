@@ -1,21 +1,21 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Quando carrega o html, define variaveis para o hover dos cursos acontecer adequadamente
     if (window.innerWidth > 958){
-        var outros = document.getElementById('outros') 
+        var botaoCurso = document.getElementById('botaoCurso') 
         var imersao = document.getElementById('imersao')
 
-        outros.value = 0 // Mantém uma variável para o hover
-        imersao.value = 1
+        botaoCurso.value = 1 // Mantém uma variável para o hover
+        imersao.value = 0
 
-        outros.addEventListener('mouseover', function () {
-            if (outros.value == 0) {
-                outros.style.opacity = 1
+        botaoCurso.addEventListener('mouseover', function () {
+            if (botaoCurso.value == 0) {
+                botaoCurso.style.opacity = 1
             }
         })
 
-        outros.addEventListener('mouseout', function () {
-            if (outros.value == 0) {
-                outros.style.opacity = 0.5
+        botaoCurso.addEventListener('mouseout', function () {
+            if (botaoCurso.value == 0) {
+                botaoCurso.style.opacity = 0.5
             }
         })
 
@@ -69,86 +69,121 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 })
 
-let currentIndex = 0 
-let cursosImagens = document.getElementById("cursos-imagens")
-let slides = cursosImagens.children
+let swiper
 
-function mostrarImagemAtual() {
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = i === currentIndex ? "block" : "none"
-    }
-}
-function proximoSlide() {
-    currentIndex = (currentIndex + 1) % slides.length
-    mostrarImagemAtual();
-}
-function slideAnterior() {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length
-    mostrarImagemAtual()
-}
-mostrarImagemAtual()
-
-function mudarCursos(num){
+async function mudarCursos(num){
     // Renderiza os cursos conforme a aba selecionada
-    let cursoImagens = document.getElementById('cursos-imagens')
-    let cursos
-    if (num == 0){ // Imersão
-        cursos = [// Nome das imagems dos cursos
-            'harmonizacaofacial'
-        ]
-        outros.style.opacity = 0.5 
-        imersao.style.opacity = 1
+    let response = await fetch('assets/cursos/cursos.json') 
+    let data = await response.json()
+    let cursoImagens = document.getElementById('swiper-wrapper')
 
-        outros.value = 0 // Value mantem uma variavel para saber qual versao da aba cursos esta ativada
-        imersao.value = 1
-    }
-    else if (num == 1){ // Outros
-        cursos = [// Nome das imagems dos cursos
-            'botox', 
-            'harmonizacaofacial-mini', 
-            'rinomodelacao', 
-            'tricologia'
-        ]
-        outros.style.opacity = 1
-        imersao.style.opacity = 0.5
+    let listaCursos = num == 1 ? data.imersao : data.curso
 
-        outros.value = 1
-        imersao.value = 0
-    }
+    botaoCurso.style.opacity = num == 1 ? 0.5 : 1
+    imersao.style.opacity = num == 0 ? 0.5 : 1
+
+    botaoCurso.value = num == 1 ? 0 : 1
+    imersao.value = num == 0 ? 0 : 1
+    
+    // let elements = [
+    //     document.getElementById('swiper-pagination'), 
+    //     document.getElementById('swiper-button-prev'), 
+    //     document.getElementById('swiper-button-next')
+    // ]
+    // if (listaCursos.length <= 1){
+    //     elements.forEach(element => {
+    //         element.style.display = 'none'
+    //     })
+    // } else {
+    //     elements.forEach(element => {
+    //         element.style.display = 'block'
+    //     })
+    // }
+
     cursoImagens.innerHTML = '' 
-    for (let i = 0, l = cursos.length; i < l; i++){
-        cursoImagens.innerHTML += `<div><img onclick="mostrarDescricao(${i + 1})" src="assets/cursos/${cursos[i]}.jpg"></div>`
+    listaCursos.forEach(curso => {
+        cursoImagens.innerHTML += `
+                <div class='swiper-slide'>
+                    <img onclick="mostrarDescricao(${curso.id})" src="assets/cursos/${curso.imagem}" alt="${curso.nome}">
+                </div>
+            `
+    })
+
+    if (swiper) {
+        swiper.destroy(true, true);
     }
-    // Verifica se é celular
-    if (window.innerWidth <= 958){
-        currentIndex = 0
-        cursosImagens = document.getElementById("cursos-imagens")
-        slides = cursosImagens.children
-        mostrarImagemAtual()
-    }
+
+    // Inicializar o Swiper novamente
+    swiper = new Swiper('.swiper', {
+        // Configurações do Swiper
+        direction: 'horizontal',
+        loop: true,
+        grabCursor: true,
+        centeredSlides: listaCursos.length == 1 ? true : false,
+
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            1049: {
+                slidesPerView: 3,
+                spaceBetween: 10,
+            },
+            1388: {
+                slidesPerView: 4,
+                spaceBetween: 10,
+            },
+        },
+    });
 }
+mudarCursos(0)
 
 function mostrarDescricao(num) {
     var modal = document.getElementById('myModal');
     var title = document.getElementById('modal-title');
     var description = document.getElementById('modal-description');
 
-    // Atualiza o conteúdo do modal conforme o card clicado
-    if (num == 1) {
-        title.innerHTML = 'Curso de Botox';
-        description.innerHTML = 'Breve descrição sobre o curso de Botox.';
-    } else if (num == 2) {
-        title.innerHTML = 'Curso de Harmonização Facial';
-        description.innerHTML = 'Breve descrição sobre o curso de Harmonização Facial.';
-    } else if (num == 3) {
-        title.innerHTML = 'Curso de Rinomodelação';
-        description.innerHTML = 'Breve descrição sobre o curso de Rinomodelação.';
-    } else if (num == 4) {
-        title.innerHTML = 'Curso de Tricologia';
-        description.innerHTML = 'Breve descrição sobre o curso de Tricologia.';
+    let conteudos
+    if (botaoCurso.value == 1){
+        conteudos = [
+            {
+                "titulo": "Curso de Botox",
+                "descricao": "Breve descrição sobre o curso de Botox.",
+            },
+            {
+                "titulo": "Curso de Harmonização Facial",
+                "descricao": "Breve descrição sobre o curso de Harmonização Facial.",
+            },
+            {
+                "titulo": "Curso de Rinomodelação",
+                "descricao": "Breve descrição sobre o curso de Rinomodelação.",
+            },
+            {
+                "titulo": "Curso de Tricologia",
+                "descricao": "Breve descrição sobre o curso de Tricologia.",
+            }
+        ]
+    } else {
+        conteudos = [
+            {
+                "titulo": "Curso de Botox",
+                "descricao": "Breve descrição sobre o curso de Botox.",
+            }
+        ]
     }
 
-    // Exibe o modal
+    title.innerHTML = conteudos[num].titulo
+    description.innerHTML = conteudos[num].descricao
+
     modal.style.display = "block";
 }
 
@@ -170,3 +205,4 @@ function diferenciais(){
         diferenciais.innerHTML += `<img src="assets/diferencial${i + 1}.png">`
     }
 }
+diferenciais()

@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,11 +15,13 @@
     <link rel="stylesheet" href="css/landing.css">
     <link rel="stylesheet" href="css/quemSomos.css">
     <link rel="stylesheet" href="css/pacientemodelo.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
     <!-- Aba -->
     <link rel="icon" href="assets/favicon.png">
     <title>Move</title>
 </head>
-<body onload="diferenciais()">
+<body>
     <main id="background">
         <!-- Header -->
         <header class="header">
@@ -48,32 +50,32 @@
         <br>
 
         <!-- Começo cursos -->
-        <center>
-            <div class="cursos" id="cursos">
-                <div class="cursos-titulo">
-                    <div onclick="mudarCursos(0)" id="imersao" value="1">Imersão</div>
-                    <div class="linha-vertical"></div>
-                    <div onclick="mudarCursos(1)" id="outros" value="0">Outros</div>
-                </div>
-                <br>
-                <div class="cursos-imagens" id="cursos-imagens">
-                    <div id="cursos-content">
-                        <img onclick="mostrarDescricao(1)" src="assets/cursos/harmonizacaofacial.jpg" alt="Curso 1">
-                    </div>
-                </div>
-                <div class="navigation">
-                    <button id="left" onclick="slideAnterior()">←</button>
-                    <button id="right" onclick="proximoSlide()">→</button>
-                </div>
+        <div class="cursos-titulo">
+            <div onclick="mudarCursos(0)" id="botaoCurso">Cursos</div>
+            <div class="linha-vertical"></div>
+            <div onclick="mudarCursos(1)" id="imersao">Imersão</div>
+        </div><br>
+        
+        <div class="swiper">
+            <div class="swiper-wrapper" id="swiper-wrapper">
+
             </div>
-        </center>
+
+            <div class="swiper-pagination" id="swiper-pagination"></div>
+            <div class="swiper-button-prev" id="swiper-button-prev"></div>
+            <div class="swiper-button-next" id="swiper-button-next"></div>
+        </div>
 
         <!-- Modal -->
         <div id="myModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="fecharModal()">&times;</span>
-                <h2 id="modal-title"></h2>
-                <p id="modal-description"></p>
+                <h2 id="modal-title">
+
+                </h2>
+                <p id="modal-description">
+                    
+                </p>
             </div>
         <!-- Fim Modal -->
         </div>
@@ -186,6 +188,8 @@
     </a>
     <script type="text/javascript">function showIt2() {document.getElementById("msg1").style.visibility = "visible";}    setTimeout("showIt2()", 5000); function hiddenIt() {document.getElementById("msg1").style.visibility = "hidden";}setTimeout("hiddenIt()", 15000); function showIt3() {document.getElementById("msg1").style.visibility = "visible";} setTimeout("showIt3()", 25000);  msg1.onclick = function() {document.getElementById('msg1').style.visibility = "hidden"; };function alertW() { document.getElementById("alertWapp").style.visibility = "visible";	} setTimeout("alertW()", 15000); </script>
     <!-- END Widget WhastApp -->
-<script src="index.js"></script>
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/479b35ea58.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -10,44 +10,11 @@
     }
 }
 
-#outros {
+#imersao {
     opacity: 0.5;
 }
-#outros, #imersao{
+#botaoCurso, #imersao{
     transition: 0.3s;
-}
-
-.cursos-imagens {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    overflow-x: auto; 
-    scroll-behavior: smooth; 
-
-    & div {
-        flex-shrink: 0;
-        overflow: hidden;
-    }
-
-    & img {
-        border-radius: 10px;
-        height: 350px;
-        cursor: pointer;
-    }
-}
-
-.cursos-imagens::-webkit-scrollbar {
-    height: 8px; 
-}
-
-.cursos-imagens::-webkit-scrollbar-thumb {
-    background: #aaa;
-    border-radius: 4px;
-}
-
-.navigation{
-    display: none;
 }
 
 /* Modal */
@@ -88,67 +55,58 @@
     cursor: pointer;
 }
 
-@media (max-width: 958px) {
-    .carousel-container {
-        position: relative;
-        width: 100%;
-        max-width: 300px;
-        overflow: hidden;
+
+
+/* cards */
+.swiper {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+.swiper-wrapper{
+    /* padding-left: 20px;
+    padding-right: 20px; */
+    margin-bottom: 30px;
+}
+
+.swiper-slide{
+    /* margin-left: 20px;
+    margin-right: 20px; */
+    & img{
+        width: 350px;
         border-radius: 10px;
+        box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
+        object-fit: cover;
     }
+}
 
-    .carousel-track {
-        display: flex;
-        transition: transform 0.3s ease-in-out;
-    }
 
-    .carousel-slide {
-        min-width: 100%;
-        user-select: none;
 
-        & img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-    }
-    .cursos-imagens{    
-        overflow-x: hidden; 
+.swiper-button-prev, .swiper-button-next{
+    /* color: black !important; */
+    /* width: 40px !important;
+    height: 40px !important;
+}
 
-        & div{
-            /* max-width: 100%; */
-        }
+.swiper-button-next::after{
+    content: '\f054';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 14px; */
+}
 
-        & img{
-            height: 500px;
-        }
-    }
-
-    .navigation {
-        display: flex;
-        text-align: center;
+@media (max-width: 958px){
+    .swiper-slide{
         justify-content: center;
-        position: absolute;
-        top: 140vh;
-        left: 0;
-        right: 0;
-        display: flex;
-        justify-content: space-between; 
-        transform: translateY(-50%); 
-        width: 100%;
-        padding: 0 6px 0 6px;
-
-        & button {
-            background-color: rgba(0, 0, 0, 0.1);
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-            width: 60px;
-            height: 80px;
-            font-size: 30px; 
+        & img{
+            width: 95%;
         }
+    }
+
+    .swiper-wrapper{
+        padding: 0;
     }
 }
