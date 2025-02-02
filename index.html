@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="css/quemSomos.css">
     <link rel="stylesheet" href="css/pacientemodelo.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="css/depoimento.css"/>
+    <link rel="stylesheet" href="css/estrutura.css"/>
 
     <!-- Aba -->
     <link rel="icon" href="assets/favicon.png">
@@ -37,6 +39,7 @@
                     <li><a href="#pacientemodelo" onclick="scrollIntoView()">Área do aluno</a></li>
                 </ul>
             </div>
+            <div id="menu-mobile"></div>
         </header>
         <!-- Frase da landing page -->
         <div id="div-texto"><center class="texto" id="texto">A excelência é conquistada <br>através da prática constante</center><br></div>
@@ -120,27 +123,25 @@
             <center id="titulo-pacientemodelo">Seja paciente modelo<br><hr class="linha-titulo">
             <p>Experimente tratamentos estéticos avançados realizados por profissionais em formação, sempre acompanhados por especialistas experientes da equipe Move Medical. Uma oportunidade única para elevar sua autoestima enquanto apoia o desenvolvimento de futuros profissionais altamente capacitados em harmonização facial.</p></center>
         <br><div id="vantagens"><br>
-                <div>
+                <div class="subsessao-pacientemodelo">
                     <center>
-                        <div>
-                            <img src="assets/Slogans-1.png"><br>
-                        </div>
+                        <i class="fa-solid fa-star fa-2xl" style="color: #1b2e50;"></i>
                         <h3>Procedimento de alta qualidade</h3>
                         <p>Realizados por alunos devidamente capacitados e supervisionados de perto por profissionais especialistas altamente experientes.
                         </p>
                     </center>
                 </div>
-                <div>
+                <div class="subsessao-pacientemodelo">
                     <center>
-                        <img src="assets/Slogans-2.png"><br>
+                        <i class="fa-solid fa-user-group fa-2xl" style="color: #1b2e50;"></i>
                         <h3>Supervisão de especialistas</h3>
                         <p>Asseguramos que cada procedimento seja conduzido com máxima atenção aos detalhes, respeitando suas necessidades e particularidades.
                         </p>
                     </center>
                 </div>
-                <div>
+                <div class="subsessao-pacientemodelo">
                     <center>
-                        <img src="assets/iconnota.png" id="nota"><br>
+                        <i class="fa-solid fa-money-bill fa-2xl" style="color: #1b2e50;"></i><br>
                         <h3>Custo benefício</h3>
                         <p>Acesso a tratamentos de alta qualidade por valores acessíveis, ajudando a formar os futuros profissionais da área.
                         </p>
@@ -149,8 +150,105 @@
             </div>
         </div>
         
-        <div class="depoimentos">
-            
+        <div class="estrutura">
+            <center>
+                <div id="titulo-estrutura">
+                    ESTRUTURA
+                </div>
+                <hr class="linha-titulo">
+            </center>
+            <div class="swiper-estrutura">
+                <div class="swiper-wrapper" id="swiper-wrapper">
+                    <div class="swiper-slide"><img src="assets/sala.jpg"></div>
+                    <div class="swiper-slide"><img src="assets/escritorio.jpg"></div>                    
+                </div>
+
+                <div class="estrutura-prev" id="estrutura-prev"></div>
+                <div class="estrutura-next" id="estrutura-next"></div>
+                <div class="estrutura-pagination" id="estrutura-pagination"></div>
+            </div>
+        </div>
+        
+        <div class="depoimento">
+            <center>
+                <div id="titulo-estrutura">
+                    DEPOIMENTOS
+                </div>
+                <hr class="linha-titulo">
+            </center>
+            <div class="swiper-depoimento">
+                <div class="swiper-wrapper" id="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="card-depoimento">
+                            <div class="card-depoimento-tag tag-aluno">
+                                <center>aluno</center>
+                            </div>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero minima accusantium 
+                            <div class="nome-aluno">
+                                Nome do aluno
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card-depoimento">
+                            <div class="card-depoimento-tag tag-aluno">
+                                <center>aluno</center>
+                            </div>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero minima accusantium 
+                            <div class="nome-aluno">
+                                Nome do aluno
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card-depoimento">
+                            <div class="card-depoimento-tag tag-pacientemodelo">
+                                <center>Paciente Modelo</center>
+                            </div>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero minima accusantium 
+                            <div class="nome-aluno">
+                                Nome do aluno
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card-depoimento">
+                            <div class="card-depoimento-tag tag-aluno">
+                                <center>aluno</center>
+                            </div>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero minima accusantium 
+                            <div class="nome-aluno">
+                                Nome do aluno
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card-depoimento">
+                            <div class="card-depoimento-tag tag-aluno">
+                                <center>aluno</center>
+                            </div>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero minima accusantium 
+                            <div class="nome-aluno">
+                                Nome do aluno
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card-depoimento">
+                            <div class="card-depoimento-tag tag-aluno">
+                                <center>aluno</center>
+                            </div>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero minima accusantium 
+                            <div class="nome-aluno">
+                                Nome do aluno
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="depoimento-prev" id="depoimento-prev"></div>
+                <div class="depoimento-next" id="depoimento-next"></div>
+            </div>
         </div>
     </nav>
 

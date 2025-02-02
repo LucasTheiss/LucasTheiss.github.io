@@ -67,10 +67,50 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         switchBackground()
     }
+    const estruturaswiper = new Swiper('.swiper-estrutura', {
+        direction: 'horizontal',
+        // loop: true,
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 1,
+        navigation: {
+            nextEl: '.estrutura-next',
+            prevEl: '.estrutura-prev',
+        },
+        pagination: {
+            el: '.estrutura-pagination',
+            clickable: true,
+        },
+    });
+    const depoimentoswiper = new Swiper('.swiper-depoimento', {
+        direction: 'horizontal',
+        loop: true,
+        grabCursor: true,
+        centeredSlides: true,
+        
+        navigation: {
+            nextEl: '.depoimento-next',
+            prevEl: '.depoimento-prev',
+        },
+        spaceBetween: 30,
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+            },
+            640: {
+                slidesPerView: 2,
+            },
+            1049: {
+                slidesPerView: 3,
+            },
+            1388: {
+                slidesPerView: 4,
+            },
+        },
+    });
 })
 
 let swiper
-
 async function mudarCursos(num){
     // Renderiza os cursos conforme a aba selecionada
     let response = await fetch('assets/cursos/cursos.json') 

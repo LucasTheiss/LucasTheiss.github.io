@@ -1,0 +1,56 @@
+#titulo-depoimento{
+    text-transform: uppercase;
+}
+
+.depoimento{
+    justify-content: center;
+    margin-top: 50px;
+    overflow-x: hidden;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.card-depoimento{
+    background: linear-gradient(to top, #000 30%, rgba(236, 235, 233, 0.0) 100%), 
+    url('..\\assets\\depoimento1.jpg') center/cover no-repeat;
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    color: white;
+    padding: 15px;
+}
+
+.swiper-depoimento{
+    margin-top: 10px;
+}
+
+& .swiper-slide{
+    width: 25%;    
+}
+
+.nome-aluno{
+    color: rgb(0, 213, 255);
+}
+
+.curso-aluno{
+
+}
+
+.card-depoimento-tag{
+    border-radius: 20px;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+
+.tag-aluno{
+    background-color: rgb(0, 213, 255);
+    max-width: 30%;
+}
+
+.tag-pacientemodelo{
+    background-color: rgb(0, 110, 132);
+    max-width: 75%;
+}

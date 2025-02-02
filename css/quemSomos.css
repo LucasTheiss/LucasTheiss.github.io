@@ -28,6 +28,7 @@
     width: 50%;
 
     & p{
+        /* margin-top: -20px; */
         font-size: 0.99rem;
     }
 
@@ -38,26 +39,39 @@
 }
 
 #titulo-quem-somos{
-    margin-top: 40px;
+    margin-top: 20px;
     text-transform: uppercase;
 }
 
 @media (max-width: 958px){
+    #quem-somos{
+        margin: 0 0;
+    }
+
     .sessao-quem-somos{
         display: flex;
         justify-content: center; 
         align-items: center;  
         flex-direction: column;
         overflow: hidden;
+        margin-bottom: 0px;
+        margin-top: 0px;
+        font-size: 0.95rem;
 
         & img{
-            width: 350px;
-            margin: 20px 0 -40px 0;
+            width: 300px;
+            margin: 10px 0 -40px 0;
             order: 1;
         }
 
         & .subsessao-quem-somos {
             order: 2; 
+            margin-bottom: 5px;
+
+            & p{
+                /* margin-top: -20px; */
+                font-size: 0.94rem;
+            }
         }
 
         & div{

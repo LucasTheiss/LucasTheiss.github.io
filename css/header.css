@@ -49,6 +49,10 @@
     vertical-align: middle;
 }
 
+#menu-mobile{
+    display: none;
+}
+
 @media (max-width: 958px) {
     .header{
         display: flex;
@@ -57,5 +61,9 @@
         & #menu{
             display: none;
         }
+    }
+
+    #menu-mobile{
+        display: flex;
     }
 }
