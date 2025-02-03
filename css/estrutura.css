@@ -2,9 +2,11 @@
     background-color: #243f6d;
     padding: 30px;
     color: white;
+    margin-bottom: 50px;
 }
 
 .swiper-estrutura {
+    position: relative;
     width: 100%;
     height: auto;
     display: flex;
@@ -20,9 +22,36 @@
 
 .swiper-estrutura .swiper-slide{
     & img{
-        width: 650px;
+        max-width: 650px;
         border-radius: 10px;
         box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
         object-fit: cover;
+        margin: 0 auto;
+        box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
     }
+}
+
+.estrutura-prev, .estrutura-next{
+    color: #00afd8 !important; 
+}
+
+.swiper-estrutura .swiper-pagination-bullet{
+    background-color: #888 !important;
+}
+.swiper-estrutura .swiper-pagination-bullet-active{
+    background-color: #00afd8 !important;
+}
+
+.swiper-button-prev, 
+.swiper-button-next {
+    position: absolute;
+    /* transform: translateX(-100%); */
+}
+
+.estrutura-prev, .depoimento-prev {
+    left: 10px;
+}
+
+.estrutura-next, .depoimento-next {
+    right: 10px;
 }

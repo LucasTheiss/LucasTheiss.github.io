@@ -74,8 +74,8 @@ document.addEventListener('DOMContentLoaded', function () {
         centeredSlides: true,
         slidesPerView: 1,
         navigation: {
-            nextEl: '.estrutura-next',
-            prevEl: '.estrutura-prev',
+            nextEl: '#estrutura-next',
+            prevEl: '#estrutura-prev',
         },
         pagination: {
             el: '.estrutura-pagination',
@@ -89,8 +89,8 @@ document.addEventListener('DOMContentLoaded', function () {
         centeredSlides: true,
         
         navigation: {
-            nextEl: '.depoimento-next',
-            prevEl: '.depoimento-prev',
+            nextEl: '#depoimento-next',
+            prevEl: '#depoimento-prev',
         },
         spaceBetween: 30,
         breakpoints: {
