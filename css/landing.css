@@ -1,14 +1,12 @@
 /* Landing */
 main{
-    width: 100%;
-    max-width: 100%;
     background-image: url(/assets/background1.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     transition: background-image 0.2s ease, opacity 0.2s ease;
     color: rgb(255, 255, 255);
-    min-height: 100vh;
+    height: 100vh;
 }
 
 .texto{
