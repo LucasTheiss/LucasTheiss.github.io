@@ -44,7 +44,41 @@
     text-transform: uppercase;
 }
 
-@media (max-width: 958px){
+@media (max-width: 915px){
+    .sessao-quem-somos{
+        font-size: larger;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 50px;
+        align-items: center;
+        overflow: hidden;
+        margin-bottom: 0px;
+        margin-top: 0px;
+        margin-left: 10px;
+        margin-right: 10px;
+        font-size: 0.95rem;
+
+        & img{
+            width: 350px;
+            margin: 10px 0 0px 0;
+        }
+
+        & .subsessao-quem-somos {
+            margin-bottom: 5px;
+
+            & p{
+                /* margin-top: -20px; */
+                font-size: 0.94rem;
+            }
+        }
+
+        & div{
+            width: 85%;
+        }
+    }
+}
+@media (max-width: 650px){
     #quem-somos{
         margin: 0 0;
     }
