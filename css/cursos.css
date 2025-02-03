@@ -83,7 +83,7 @@
 
 .swiper .swiper-button-prev, .swiper-button-next{
     color: #00afd8 !important; 
-    width: 40px !important;
+    /* width: 40px !important; */
 }
 
 .swiper .swiper-pagination-bullet{
