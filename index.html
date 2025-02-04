@@ -39,8 +39,25 @@
                     <li><a href="" onclick="scrollIntoView()">Área do aluno</a></li>
                 </ul>
             </div>
-            <div id="menu-mobile"></div>
+
+            <!-- Responsividade -->
+            <div class="mobile-menu" id="mobile-menu">
+                <div class="menu-icon" id="menu-icon" onclick="mobileMenuToggle()">
+                    <div class="block"></div>
+                    <div class="block"></div>
+                    <div class="block"></div>
+                </div>
+                
+            </div>
+            <!--  -->
         </header>
+        <ul class="mobile-menu-list" id="mobile-menu-list">
+            <li class="mobile-menu-item"><a href="#scroll-cursos" onclick="scrollIntoView()">Nossos cursos</a></li>
+            <li class="mobile-menu-item"><a href="#quem-somos" onclick="scrollIntoView()">Quem somos</a></li>  
+            <li class="mobile-menu-item"><a href="#diferenciais" onclick="scrollIntoView()">Diferenciais</a></li>  
+            <li class="mobile-menu-item"><a href="#pacientemodelo" onclick="scrollIntoView()">Paciente modelo</a></li>
+            <li class="mobile-menu-item"><a href="" onclick="scrollIntoView()">Área do aluno</a></li>
+        </ul>
         <!-- Frase da landing page -->
         <div id="div-texto"><center class="texto" id="texto">A excelência é conquistada <br>através da prática constante</center><br></div>
     <!-- Fim da landing page -->
