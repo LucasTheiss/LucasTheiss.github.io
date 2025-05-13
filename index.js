@@ -68,6 +68,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         switchBackground()
     }
+    mudarCursos(1)
+    mudarCursos(0)
     const estruturaswiper = new Swiper('.swiper-estrutura', {
         direction: 'horizontal',
         // loop: true,
