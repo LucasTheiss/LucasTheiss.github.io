@@ -168,7 +168,7 @@ button:hover{
     width: 40px;
     height: 40px;
     font-size: 26px;
-    right: 50%;
+    left: 50%;
     justify-content: center;
     align-items: center;
 }
