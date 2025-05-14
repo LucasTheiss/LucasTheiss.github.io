@@ -113,6 +113,23 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 })
 
+window.onscroll = function () {
+    const botao = document.getElementById("voltar-topo");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    botao.style.display = "block";
+    } else {
+    botao.style.display = "none";
+    }
+};
+
+// Função para rolar até o topo suavemente
+function voltarAoTopo() {
+    window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+    });
+}
+
 function mobileMenuToggle(){
     let menu = document.getElementById("mobile-menu-list")
     let menuIcon = document.getElementById("menu-icon")
