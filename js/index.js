@@ -123,7 +123,7 @@ window.onscroll = function () {
     }
 };
 
-// Função para rolar até o topo suavemente
+// Função para voltar ao topo 
 function voltarAoTopo() {
     window.scrollTo({
     top: 0,
