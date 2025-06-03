@@ -1,61 +1,40 @@
 /* Cursos */
 .cursos-titulo{
+    text-transform: uppercase;
+    margin-bottom: 0px;
     display: flex;
-    text-align: center;
-    justify-content: center;
-    gap: 40px;
-
-    & div{
-        cursor: pointer;
-    }
+    flex-direction: column;
+    align-items: center;
 }
 
-#imersao {
+/* #imersao {
     opacity: 0.5;
 }
 #botaoCurso, #imersao{
     transition: 0.3s;
+} */
+
+.cursos{
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    height: 400px;
+    margin: 0 auto;
+}
+.curso{
+    display: flex;
+    justify-content: center;
+    flex: 1;
 }
 
-/* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1; 
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
+.curso img {
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4); 
-}
-
-.modal-content {
-    color: rgb(10, 27, 86);
-    background-color: rgba(255,255,255,0.8);
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
     border-radius: 10px;
 }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+.curso .swiper-button-disabled{
+    display: none;
 }
-
-.close:hover, .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-
 
 /* cards */
 .swiper {
@@ -67,19 +46,22 @@
     text-align: center;
 }
 .swiper .swiper-wrapper{
-    margin-bottom: 30px;
+    margin-bottom: 30px;    
 }
 
 .swiper .swiper-slide{
+    width: auto;
     & img{
-        width: 300px;
+        width: 90%;
         border-radius: 10px;
         box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
         object-fit: cover;
     }
 }
 
-
+.swiper{
+    margin-bottom: -10px
+}
 
 .swiper .swiper-button-prev, .swiper-button-next{
     color: #00afd8 !important; 

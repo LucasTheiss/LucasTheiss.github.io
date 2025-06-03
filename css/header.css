@@ -1,11 +1,10 @@
 /* Header */
 .header{
     background-color: none;
-    display: grid;
+    display: flex;
     align-items: center;
-    grid-template-columns: auto 1fr;
-    justify-content: space-around;
-    margin: 0 50px;
+    justify-content: space-between;
+    padding: 0 20px;
     
     & ul {
         text-transform: uppercase;

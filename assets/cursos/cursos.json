@@ -1,27 +1,17 @@
 {
     "curso": [
         { 
-            "id": 0, 
-            "nome": "Botox", 
-            "imagem": "botox.jpg" 
-        },
-        { 
             "id": 1, 
-            "nome": "Harmonização Facial Mini", 
-            "imagem": "harmonizacaofacial-mini.jpg" 
+            "nome": "Rinomodelação", 
+            "imagem": "rinomodelacao.jpg" 
         },
         { 
-            "id": 2, 
+            "id": 21, 
             "nome": "Rinomodelação", 
             "imagem": "rinomodelacao.jpg" 
         },
         { 
             "id": 3, 
-            "nome": "Rinomodelação", 
-            "imagem": "rinomodelacao.jpg" 
-        },
-        { 
-            "id": 4, 
             "nome": "Rinomodelação", 
             "imagem": "rinomodelacao.jpg" 
         }
