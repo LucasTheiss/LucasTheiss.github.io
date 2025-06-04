@@ -193,8 +193,8 @@ button:hover{
     }
 
     .image-grid {
-        width: 85%;
-        grid-template-columns: repeat(1, 1fr);  
+        width: 95%;
+        grid-template-columns: repeat(2, 1fr);  
         padding: 0;
     }
 }
