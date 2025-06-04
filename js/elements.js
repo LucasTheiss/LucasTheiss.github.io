@@ -29,7 +29,6 @@ function carregarHeader() {
             <li class="mobile-menu-item"><a href="quemSomos.html" target="_blank">Quem somos</a></li>  
             <li class="mobile-menu-item"><a href="#diferenciais" onclick="scrollIntoView()">Diferenciais</a></li>  
             <li class="mobile-menu-item"><a href="pacienteModelo.html" target="_blank">Paciente modelo</a></li>
-            <li class="mobile-menu-item"><a href="" onclick="scrollIntoView()">Área do aluno</a></li>
         </ul>
     `
 

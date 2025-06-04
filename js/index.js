@@ -44,8 +44,8 @@ document.addEventListener('DOMContentLoaded', function () {
         loop: true,
         slidesPerView: 1,
         navigation: {
-            nextEl: '#swiper-button-next',
-            prevEl: '#swiper-button-prev',
+            nextEl: '.estrutura-next',
+            prevEl: '.estrutura-prev',
         },
         pagination: {
             el: '.estrutura-pagination',
@@ -159,7 +159,7 @@ window.onclick = function(event) {
 function diferenciais(){
     var diferenciais = document.getElementById('image-grid')
     for (i = 0; i < 6; i++){
-        diferenciais.innerHTML += `<img src="../assets/diferencial${i + 1}.png">`
+        diferenciais.innerHTML += `<img src="../assets/diferenciais/Slogans.zip - ${22 + i}.png">`
     }
 }
 diferenciais()
