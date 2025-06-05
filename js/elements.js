@@ -134,7 +134,21 @@ function carregarFooter() {
                     <div>Rua Miguel Matte, 687, Edifício Evolution Corporate<br class="mobile-no-display"><br>Bairro Pioneiros, Balneário Camboriú - SC, 88331 - 030<br><br>Telefone: +55 (47) 99616-0560<br class="mobile-no-display"><br>E-mail: contato@movemedical.com.br</div>
                     <div>
                         <center id="redes">
-                            <br>Redes sociais<br><a href="https://www.instagram.com/move.medical?igsh=MXJ4NXZ1cTR4bHRkZw%3D%3D&utm_source=qr" target="_blank"><img src="../assets/iconinstagram.png"></a> &nbsp&nbsp<a target="_blank" href="https://www.tiktok.com/@move.medical?_t=ZM-8tGPtzKThDy&_r=1 "><img src="../assets/icontiktok.png"></a><br>
+                            <br>Redes sociais<br><a href="https://www.instagram.com/move.medical?igsh=MXJ4NXZ1cTR4bHRkZw%3D%3D&utm_source=qr" target="_blank"><img src="../assets/iconinstagram.png"></a> &nbsp&nbsp
+                            <a target="_blank" href="https://www.tiktok.com/@move.medical?_t=ZM-8tGPtzKThDy&_r=1"><img src="../assets/icontiktok.png"></a> &nbsp&nbsp
+                            <a style="overflow: hidden; border-radius: 20px;" target="_blank" href="https://youtube.com/@movemedical-z5w?si=If7uknZQT9vMbFcy">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="28" viewBox="0 0 100 70">
+                                    <defs>
+                                        <mask id="cutout">
+                                        <rect width="100" height="70" fill="white"/>
+                                        <polygon points="40,22 68,35 40,48" fill="black"/>
+                                        </mask>
+                                    </defs>
+                                    <rect width="100" height="70" rx="25" fill="#FFFFFF" mask="url(#cutout)"/>
+                                </svg>
+
+
+                            </a><br>
                         </center>
                         <!-- <a style="display: none;" href=""><img src=""></a> -->
                     </div>
