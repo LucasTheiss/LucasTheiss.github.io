@@ -420,6 +420,7 @@ button:hover{
         width: 500px;
     }
 }
+
 @media (max-width: 500px){
     .informacoes{
         padding: 0;
