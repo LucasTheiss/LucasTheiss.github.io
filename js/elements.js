@@ -1,5 +1,22 @@
+function mobileMenuToggle(){
+    let menu = document.getElementById("mobile-menu-list")
+    let menuIcon = document.getElementById("menu-icon")
+    
+    if (menuIcon.classList.contains('active')){
+        menuIcon.classList.remove("active")
+        menu.classList.remove("active")
+        return
+    }
+    menuIcon.classList.toggle("active")
+    menu.classList.toggle("active")
+}
+
 function carregarHeader() {
-    let headerDefinido = false
+    const pathname = window.location.pathname;
+    const index = pathname.endsWith('index.html')
+    const imersao = pathname.endsWith('harmonizacaoFacial.html')
+    const cursos = ['tricologia.html', 'perfiloplastia.html', 'harmonizacaoFacial.html'].some(curso => pathname.endsWith(curso));
+
     let headerHTML = `
         <header class="header"` 
 
@@ -7,7 +24,7 @@ function carregarHeader() {
         headerHTML += `>
             <div>
                 <a` 
-                if (window.location.href == 'index.html'){
+                if (index){
                     headerHTML += ` href="index.html"`
                 } else {
                     headerHTML += ` href="../index.html"`
@@ -19,11 +36,32 @@ function carregarHeader() {
                 </a>
             </div>
             <div id="menu">
-                <ul>
+                <ul>`
+            if (index){
+                headerHTML += `
                     <li><a href="#scroll-cursos" onclick="scrollIntoView()">Nossos cursos</a></li>
-                    <li><a href="quemSomos.html" target="_blank">Quem somos</a></li>  
                     <li><a href="#diferenciais" onclick="scrollIntoView()">Diferenciais</a></li>  
-                    <li><a href="pacienteModelo.html" target="_blank">Paciente modelo</a></li>
+                    <li><a href="#depoimento" onclick="scrollIntoView()">Depoimentos</a></li>  
+                    <li><a href="pages/quemSomos.html" target="_blank">Quem somos</a></li>  
+                    <li><a href="#pacientemodelo" onclick="scrollIntoView()">Paciente modelo</a></li>
+                `
+            } else if (cursos){
+                headerHTML += `
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="#conteudo-programatico" onclick="scrollIntoView()">
+                `
+                headerHTML += !imersao ? `Conteúdo programático` : `Módulos`
+                
+                headerHTML += `</a></li>`
+
+                headerHTML += `
+                    <li><a href="#faq" onclick="scrollIntoView()">FAQ</a></li>
+                `
+            } else{
+                headerHTML += `<li><a href="../index.html"">Início</a></li>`
+            }
+
+            headerHTML += `
                 </ul>
                 <div class="mobile-menu" id="mobile-menu">
                     <div class="menu-icon" id="menu-icon" onclick="mobileMenuToggle()">
@@ -35,12 +73,32 @@ function carregarHeader() {
             </div>
         </header>
         <ul class="mobile-menu-list" id="mobile-menu-list">
+        `
+        if (index){
+        headerHTML += `
             <li class="mobile-menu-item"><a href="#scroll-cursos" onclick="scrollIntoView()">Nossos cursos</a></li>
-            <li class="mobile-menu-item"><a href="quemSomos.html" target="_blank">Quem somos</a></li>  
             <li class="mobile-menu-item"><a href="#diferenciais" onclick="scrollIntoView()">Diferenciais</a></li>  
-            <li class="mobile-menu-item"><a href="pacienteModelo.html" target="_blank">Paciente modelo</a></li>
-        </ul>
-    `
+            <li class="mobile-menu-item"><a href="#depoimento" onclick="scrollIntoView()">Depoimentos</a></li>  
+            <li class="mobile-menu-item"><a href="pages/quemSomos.html" target="_blank">Quem somos</a></li>  
+            <li class="mobile-menu-item"><a href="pages/pacienteModelo.html" target="_blank">Paciente modelo</a></li>
+        `
+        } else if (cursos){
+            headerHTML += `
+                <li class="mobile-menu-item"><a href="../index.html">Início</a></li>
+                <li class="mobile-menu-item"><a href="#conteudo-programatico" onclick="scrollIntoView()">
+            `
+            headerHTML += !imersao ? `Conteúdo programático` : `Módulos`
+            
+            headerHTML += `</a></li>`
+
+            headerHTML += `
+                <li class="mobile-menu-item"><a href="#faq" onclick="scrollIntoView()">FAQ</a></li>
+            `
+        } else {
+            headerHTML += `<li class="mobile-menu-item"><a href="../index.html"">Início</a></li>`
+        }
+
+        headerHTML += `</ul>`
 
     let element = document.querySelector('main')
     let mudanca = false
@@ -50,12 +108,11 @@ function carregarHeader() {
     }
     element.insertAdjacentHTML('afterbegin', headerHTML)
     if (!mudanca){return}
-    if (!headerDefinido){
-        document.querySelector('header').style.backgroundColor = '#00244a'
-    }
+    document.querySelector('header').style.backgroundColor = '#00244a'
     document.querySelector('header').style.paddingLeft = '10px'
     document.querySelector('header').style.paddingRight = '10px'
     document.querySelector('header').style.height = '75px'
+    document.querySelector('#mobile-menu-list').style.marginTop = '75px';
 }
 carregarHeader()
 

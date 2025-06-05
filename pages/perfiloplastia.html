@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/cursos.css">
     <link rel="stylesheet" href="../css/landing.css">
-    <link rel="stylesheet" href="../css/quemSomos.css">
     <link rel="stylesheet" href="../css/pacientemodelo.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="../css/depoimento.css"/>
@@ -58,7 +57,7 @@
         </div>
     </div>
     
-    <div class="container conteudo-programatico">
+    <div class="container conteudo-programatico" id="conteudo-programatico">
         <p class="hint">Saiba mais sobre o curso</p>
         <p class="destaque">CONTEÚDO PROGRAMÁTICO</p>
         <div class="sessao">
@@ -96,7 +95,7 @@
         </div>
     </div>
     <!--  -->
-    <div class="container faq">
+    <div class="container faq" id="faq">
         <p class="destaque-2">FAQ</p>
         <div class="subcontainer">
             <ul>
@@ -148,41 +147,7 @@
 <!-- <script type="text/javascript">function showIt2() {document.getElementById("msg1").style.visibility = "visible";}    setTimeout("showIt2()", 5000); function hiddenIt() {document.getElementById("msg1").style.visibility = "hidden";}setTimeout("hiddenIt()", 15000); function showIt3() {document.getElementById("msg1").style.visibility = "visible";} setTimeout("showIt3()", 25000);  msg1.onclick = function() {document.getElementById('msg1').style.visibility = "hidden"; };function alertW() { document.getElementById("alertWapp").style.visibility = "visible";	} setTimeout("alertW()", 15000); </script> -->
 <!-- END Widget WhastApp -->
 
-<!-- script dos videos -->
 <script src="../js/elements.js"></script>
-<script>
-    const cards = document.querySelectorAll('.card-depoimento');
-
-    cards.forEach(card => {
-        const img = card.querySelector('.imagem-depoimento');
-        const video = card.querySelector('.video-depoimento');
-
-        // Mostrar vídeo e tocar
-        img.addEventListener('click', () => {
-            // Pausa todos os outros vídeos
-            document.querySelectorAll('.video-depoimento').forEach(v => {
-                if (v !== video) {
-                    v.pause();
-                    v.style.display = 'none';
-                    const parent = v.closest('.card-depoimento');
-                    const siblingImg = parent.querySelector('.imagem-depoimento');
-                    if (siblingImg) siblingImg.style.display = 'block';
-                }
-            });
-
-            img.style.display = 'none';
-            video.style.display = 'block';
-            video.play();
-        });
-
-        // Pausar vídeo e voltar para imagem
-        video.addEventListener('click', () => {
-            video.pause();
-            video.style.display = 'none';
-            img.style.display = 'block';
-        });
-    });
-</script>
 <script src="../js/faq.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

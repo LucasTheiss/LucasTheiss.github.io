@@ -4,7 +4,7 @@
 }
 
 .pacientemodelo{
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
     & p{
         text-transform: none;
         width: 62%;

@@ -1,6 +1,6 @@
 #quem-somos{
     display: block;
-    margin: 20px 0px ;
+    margin: 0px 0px ;
 }
 
 .sessao-quem-somos{
@@ -40,7 +40,7 @@
 }
 
 #titulo-quem-somos{
-    margin-top: 20px;
+    margin-top: 0px;
     text-transform: uppercase;
 }
 

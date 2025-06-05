@@ -81,7 +81,6 @@ body{
     }
 }
 
-
 .conteudo-programatico{
     width: 100%;
     background-color: #00244a;
@@ -90,9 +89,9 @@ body{
     justify-content: center;
     gap: 5px;
     & .lista-estrutura {
+        width: 100%;
         padding: 20px;
         list-style: none;
-        width: fit-content;
 
         & li {
             list-style: none;
@@ -124,6 +123,10 @@ body{
     }
 }
 
+.sessao .imersao .subcontainer{
+    width: 500px;
+}
+
 .faq {
     flex-direction: column;
     gap: 10px;
@@ -146,7 +149,7 @@ body{
         border: none;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.5s ease, padding 0.5s, border 0.5s;
+        transition: max-height 1s ease-in-out, padding 0.5s, border 0.5s;
         padding: 6px;
         border: 1px black solid;
     }
@@ -307,6 +310,10 @@ form{
     }
 }
 
+.containerVideo{
+    position: relative;
+}
+
 input[type='text'], input[type='email'], button{
     width: 250px;
     /* height: 25px; */
@@ -403,6 +410,15 @@ button:hover{
             padding: 20px;
         }
     }
+    .sessao{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hint{
+        width: 500px;
+    }
 }
 @media (max-width: 500px){
     .informacoes{
@@ -460,4 +476,3 @@ button:hover{
         margin: 0 0 0 0;
     }
 }
-
