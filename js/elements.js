@@ -1,14 +1,18 @@
 function carregarHeader() {
+    let headerDefinido = false
     let headerHTML = `
-        <header class="header">
+        <header class="header"` 
+
+        
+        headerHTML += `>
             <div>
                 <a` 
-    if (window.location.href == 'index.html'){
-        headerHTML += ` href="index.html"`
-    } else {
-        headerHTML += ` href="../index.html"`
-    }
-    headerHTML +=`>
+                if (window.location.href == 'index.html'){
+                    headerHTML += ` href="index.html"`
+                } else {
+                    headerHTML += ` href="../index.html"`
+                }
+                headerHTML +=`>
                     <div class="logo" id="div-logo">
                         <img src="../assets/logo.png">
                     </div>
@@ -46,7 +50,9 @@ function carregarHeader() {
     }
     element.insertAdjacentHTML('afterbegin', headerHTML)
     if (!mudanca){return}
-    document.querySelector('header').style.backgroundColor = '#00244a'
+    if (!headerDefinido){
+        document.querySelector('header').style.backgroundColor = '#00244a'
+    }
     document.querySelector('header').style.paddingLeft = '10px'
     document.querySelector('header').style.paddingRight = '10px'
     document.querySelector('header').style.height = '75px'

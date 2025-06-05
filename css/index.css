@@ -115,7 +115,7 @@ body{
 
     & .subcontainer{
         width: 400px;
-        justify-content: center;
+        justify-content: start;
         align-items: center;
     }
 
