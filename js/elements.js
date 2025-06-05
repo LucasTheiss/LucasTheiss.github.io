@@ -1,8 +1,14 @@
 function carregarHeader() {
-    const headerHTML = `
+    let headerHTML = `
         <header class="header">
             <div>
-                <a href="index.html">
+                <a` 
+    if (window.location.href == 'index.html'){
+        headerHTML += ` href="index.html"`
+    } else {
+        headerHTML += ` href="../index.html"`
+    }
+    headerHTML +=`>
                     <div class="logo" id="div-logo">
                         <img src="../assets/logo.png">
                     </div>
@@ -32,8 +38,18 @@ function carregarHeader() {
         </ul>
     `
 
-    const element = document.querySelector('main') || document.body
-    element .insertAdjacentHTML('afterbegin', headerHTML)
+    let element = document.querySelector('main')
+    let mudanca = false
+    if (element == null){
+        element = document.body
+        mudanca = true
+    }
+    element.insertAdjacentHTML('afterbegin', headerHTML)
+    if (!mudanca){return}
+    document.querySelector('header').style.backgroundColor = '#00244a'
+    document.querySelector('header').style.paddingLeft = '10px'
+    document.querySelector('header').style.paddingRight = '10px'
+    document.querySelector('header').style.height = '75px'
 }
 carregarHeader()
 

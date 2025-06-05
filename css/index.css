@@ -21,10 +21,183 @@ body{
     color: #333;
 }
 
+.container{
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    gap: 40px;
+    margin-bottom: 20px;
+    padding: 20px 0;
+}
+
+.destaque{
+    font-weight: 500; 
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.destaque-2{
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+    
+}
+
+.subtexto-destaque{
+    font-weight: 300;
+}
+
+.subcontainer{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.noticia{
+    height: fit-content;
+    background-color: #00244a;
+    color: white;
+    padding: 50px;
+    border-radius: 15px;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    & img{
+        width: 100px;
+        margin-bottom: 20px;
+    }
+
+    & .hint{
+        width: 100%;
+        text-align: right;
+        color: #aaa;
+        font-style: italic;
+    }
+}
+
+
+.conteudo-programatico{
+    width: 100%;
+    background-color: #00244a;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    & .lista-estrutura {
+        padding: 20px;
+        list-style: none;
+        width: fit-content;
+
+        & li {
+            list-style: none;
+            border: 0.5px white solid;
+            padding: 6px 10px;
+        }
+    }
+
+    & .lista-conteudo{
+        border: none;
+        
+        & li {
+            border: none;
+        }
+    }
+
+    & .hint{
+        color: #bbb;
+    }
+
+    & .subcontainer{
+        width: 400px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    & .sessao{
+        display: flex;
+    }
+}
+
+.faq {
+    flex-direction: column;
+    gap: 10px;
+
+    & li {
+        border: 1px black solid;
+        list-style: none;
+        padding: 6px;
+    }
+
+    & .titulo-faq {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    & .conteudo-faq {
+        padding: 0;  
+        border: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease, padding 0.5s, border 0.5s;
+        padding: 6px;
+        border: 1px black solid;
+    }
+
+    & .conteudo-faq.oculto {
+        padding: 0;
+        border: none;
+    }
+
+    & .mostrar {
+        max-height: 500px;
+    }
+
+    & .sinal {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        height: fit-content;
+        width: fit-content;
+        transition: 0.3s;
+    }
+
+    & .sinal.abrir .block:nth-child(1) {
+        transform: translateY(3px) rotate(180deg);
+    }
+
+    & .sinal.abrir .block:nth-child(2) {
+        transform: translateY(-4px) rotate(90deg);
+        opacity: 1;
+    }
+
+    & .sinal.fechar .block:nth-child(1) {
+        transform: translateY(3px) rotate(180deg);
+    }
+
+    & .sinal.fechar .block:nth-child(2) {
+        opacity: 0;
+        transform: translateY(4px) rotate(90deg);
+    }
+
+    & .block {
+        width: 10px;
+        border-bottom: 1px solid rgba(24,164,199,255);
+    }
+}
+
 hr{
     border-top: 0.5px solid rgba(24,164,199,255);
     width: 80%;
-    /* border: none; */
 }
 
 .linha-vertical{
@@ -92,8 +265,8 @@ footer{
     margin-top: 50px;
     color: #e5e6e9;
     padding: 40px;
-    background: rgb(0,65,80);
-    background: linear-gradient(159deg, rgba(0,65,80,1) 0%, rgba(8,140,171,1) 61%, rgba(14,172,208,1) 100%);    
+    /* background: rgb(0,65,80); */
+    background: linear-gradient(159deg, rgb(0, 0, 0) 0%, #021c37 61%, #00244a 100%);    
 }
 
 #footer-titulo{
@@ -208,6 +381,27 @@ button:hover{
         width: 100%;
         padding: 10px 40px;
         grid-template-columns: repeat(2, 1fr);
+    }
+    .container{
+        flex-direction: column;
+        width: 100%;
+    
+        & .subcontainer{
+            width: 90%;
+        }
+
+        & .destaque{
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        & .subtexto-destaque{
+            font-weight: 200;
+        }
+
+        .noticia{
+            padding: 20px;
+        }
     }
 }
 @media (max-width: 500px){

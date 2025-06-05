@@ -102,7 +102,7 @@
         width: 100%;
         color: white;
         transition: max-height 0.5s ease-out, padding 0.3s ease-in-out, visibility 0.4s;
-        background-color: #243f6d;
+        background-color: #00244a;
         visibility: hidden;
 
         .mobile-menu-item{
@@ -148,5 +148,4 @@
     .menu-icon.active .block:nth-child(3) {
         transform: translateY(-12px) rotate(-45deg);
     }
-    /*  */
 }
