@@ -5,7 +5,7 @@
 .depoimento{
     justify-content: center;
     overflow-x: hidden;
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
     position: relative;
 }
@@ -64,26 +64,8 @@
     width: 25%;    
 }
 
-.nome-aluno{
-    color: rgb(0, 213, 255);
+@media screen and (max-width: 768px) {  
+    .depoimento{
+        width: 80%;
+    }   
 }
-
-.curso-aluno{
-
-}
-
-.card-depoimento-tag{
-    border-radius: 20px;
-    text-transform: capitalize;
-    margin-bottom: 10px;
-}
-
-.tag-aluno{
-    background-color: rgb(0, 213, 255);
-    max-width: 30%;
-}
-
-.tag-pacientemodelo{
-    background-color: rgb(0, 110, 132);
-    max-width: 75%;
-}   
