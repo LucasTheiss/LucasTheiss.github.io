@@ -13,7 +13,7 @@ function mobileMenuToggle(){
 
 function carregarHeader() {
     const pathname = window.location.pathname;
-    const index = pathname.endsWith('index.html')
+    const index = pathname === '/' || pathname.endsWith('index.html');
     const imersao = pathname.endsWith('harmonizacaoFacial.html')
     const cursos = ['tricologia.html', 'perfiloplastia.html', 'harmonizacaoFacial.html'].some(curso => pathname.endsWith(curso));
 
