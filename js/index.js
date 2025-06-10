@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
     if (window.innerWidth > 958){
         function switchBackground() {
-            var background = document.getElementById("background");
+            var background = document.querySelector(".background-content");
             var divTexto = document.getElementById('div-texto');
 
             var backgrounds = [
-                '../assets/background1.png',
-                '../assets/background2.png'
+                '../assets/background2.jpg',
+                '../assets/background3.jpg'
             ]
 
             var textos = [
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 divTexto.style.opacity = 0.8;
 
                 setTimeout(function() {
-                    background.style.backgroundImage = `url(${backgrounds[currentIndex]})`;
+                    background.src = backgrounds[currentIndex];
                     divTexto.innerHTML = textos[currentIndex];
 
                     setTimeout(function() {
@@ -144,9 +144,9 @@ window.onclick = function(event) {
 }
 
 function diferenciais(){
-    var diferenciais = document.getElementById('image-grid')
+    var diferenciais = document.getElementById('card-grid')
     for (i = 0; i < 6; i++){
-        diferenciais.innerHTML += `<img src="../assets/diferenciais/Slogans.zip - ${22 + i}.png">`
+        diferenciais.innerHTML += `<img class="grid-item" src="../assets/diferenciais/Slogans.zip - ${22 + i}.png">`
     }
 }
 diferenciais()

@@ -13,9 +13,10 @@ function mobileMenuToggle(){
 
 function carregarHeader() {
     const pathname = window.location.pathname;
-    const index = pathname === '/' || pathname.endsWith('index.html');
+    const pacienteModelo = pathname.endsWith('paciente-modelo/')
     const imersao = pathname.endsWith('harmonizacao-facial/')
     const cursos = ['tricologia/', 'perfiloplastia/', 'harmonizacao-facial/'].some(curso => pathname.endsWith(curso));
+    const index = !(pacienteModelo || cursos || imersao);
 
     let headerHTML = `
         <header class="header"` 
@@ -42,8 +43,8 @@ function carregarHeader() {
                     <li><a href="#scroll-cursos" onclick="scrollIntoView()">Nossos cursos</a></li>
                     <li><a href="#diferenciais" onclick="scrollIntoView()">Diferenciais</a></li>  
                     <li><a href="#depoimento" onclick="scrollIntoView()">Depoimentos</a></li>  
-                    <li><a href="quem-somos/" target="_blank">Quem somos</a></li>  
-                    <li><a href="#pacientemodelo" onclick="scrollIntoView()">Paciente modelo</a></li>
+                    <li><a href="quem-somos/">Quem somos</a></li>  
+                    <li><a href="paciente-modelo/">Paciente modelo</a></li>
                 `
             } else if (cursos){
                 headerHTML += `

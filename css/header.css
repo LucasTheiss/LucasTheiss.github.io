@@ -1,10 +1,12 @@
 /* Header */
 .header{
-    background-color: none;
+    background-color: rgba(0,0,0,0);
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
+    position: relative;
+    z-index: 1000;
     
     & ul {
         text-transform: uppercase;
@@ -37,7 +39,7 @@
     cursor: pointer;
 
     & img{
-        width: 100%;
+        width: 90%;
         height: 100%;
         object-fit: cover;
     }
@@ -132,7 +134,7 @@
 
     .block{
         background-color: white;
-        width: 50px;
+        width: 40px;
         height: 2px;
         transition: transform 0.3s ease, opacity 0.3s ease;
     }
