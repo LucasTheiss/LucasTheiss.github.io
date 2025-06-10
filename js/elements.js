@@ -14,8 +14,8 @@ function mobileMenuToggle(){
 function carregarHeader() {
     const pathname = window.location.pathname;
     const index = pathname === '/' || pathname.endsWith('index.html');
-    const imersao = pathname.endsWith('harmonizacaoFacial.html')
-    const cursos = ['tricologia.html', 'perfiloplastia.html', 'harmonizacaoFacial.html'].some(curso => pathname.endsWith(curso));
+    const imersao = pathname.endsWith('harmonizacao-facial/')
+    const cursos = ['tricologia/', 'perfiloplastia/', 'harmonizacao-facial/'].some(curso => pathname.endsWith(curso));
 
     let headerHTML = `
         <header class="header"` 
@@ -25,13 +25,13 @@ function carregarHeader() {
             <div>
                 <a` 
                 if (index){
-                    headerHTML += ` href="index.html"`
+                    headerHTML += ` href="#"`
                 } else {
-                    headerHTML += ` href="../index.html"`
+                    headerHTML += ` href="../../"`
                 }
                 headerHTML +=`>
                     <div class="logo" id="div-logo">
-                        <img src="../assets/logo.png">
+                        <img src="../../assets/logo.png">
                     </div>
                 </a>
             </div>
@@ -42,7 +42,7 @@ function carregarHeader() {
                     <li><a href="#scroll-cursos" onclick="scrollIntoView()">Nossos cursos</a></li>
                     <li><a href="#diferenciais" onclick="scrollIntoView()">Diferenciais</a></li>  
                     <li><a href="#depoimento" onclick="scrollIntoView()">Depoimentos</a></li>  
-                    <li><a href="pages/quemSomos.html" target="_blank">Quem somos</a></li>  
+                    <li><a href="quem-somos/" target="_blank">Quem somos</a></li>  
                     <li><a href="#pacientemodelo" onclick="scrollIntoView()">Paciente modelo</a></li>
                 `
             } else if (cursos){
@@ -79,8 +79,8 @@ function carregarHeader() {
             <li class="mobile-menu-item"><a href="#scroll-cursos" onclick="scrollIntoView()">Nossos cursos</a></li>
             <li class="mobile-menu-item"><a href="#diferenciais" onclick="scrollIntoView()">Diferenciais</a></li>  
             <li class="mobile-menu-item"><a href="#depoimento" onclick="scrollIntoView()">Depoimentos</a></li>  
-            <li class="mobile-menu-item"><a href="pages/quemSomos.html" target="_blank">Quem somos</a></li>  
-            <li class="mobile-menu-item"><a href="pages/pacienteModelo.html" target="_blank">Paciente modelo</a></li>
+            <li class="mobile-menu-item"><a href="quem-somos/" target="_blank">Quem somos</a></li>  
+            <li class="mobile-menu-item"><a href="paciente-modelo/" target="_blank">Paciente modelo</a></li>
         `
         } else if (cursos){
             headerHTML += `
@@ -134,8 +134,8 @@ function carregarFooter() {
                     <div>Rua Miguel Matte, 687, Edifício Evolution Corporate<br class="mobile-no-display"><br>Bairro Pioneiros, Balneário Camboriú - SC, 88331 - 030<br><br>Telefone: +55 (47) 99616-0560<br class="mobile-no-display"><br>E-mail: contato@movemedical.com.br</div>
                     <div>
                         <center id="redes">
-                            <br>Redes sociais<br><a href="https://www.instagram.com/move.medical?igsh=MXJ4NXZ1cTR4bHRkZw%3D%3D&utm_source=qr" target="_blank"><img src="../assets/iconinstagram.png"></a> &nbsp&nbsp
-                            <a target="_blank" href="https://www.tiktok.com/@move.medical?_t=ZM-8tGPtzKThDy&_r=1"><img src="../assets/icontiktok.png"></a> &nbsp&nbsp
+                            <br>Redes sociais<br><a href="https://www.instagram.com/move.medical?igsh=MXJ4NXZ1cTR4bHRkZw%3D%3D&utm_source=qr" target="_blank"><img src="../../assets/iconinstagram.png"></a> &nbsp&nbsp
+                            <a target="_blank" href="https://www.tiktok.com/@move.medical?_t=ZM-8tGPtzKThDy&_r=1"><img src="../../assets/icontiktok.png"></a> &nbsp&nbsp
                             <a style="overflow: hidden; border-radius: 20px;" target="_blank" href="https://youtube.com/@movemedical-z5w?si=If7uknZQT9vMbFcy">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="28" viewBox="0 0 100 70">
                                     <defs>
