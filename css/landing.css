@@ -23,7 +23,6 @@ main{
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 101%;
     /* height: 100%; */
     transform: translate(-50%, -50%);
     z-index: 0;
@@ -34,6 +33,7 @@ main{
 .main{
     top: 73%;
     filter: brightness(0.8);
+    width: 101%;
 }
 
 #div-texto {
@@ -60,6 +60,14 @@ main{
     z-index: 11;
 }
 
+@media (max-width: 1479px) {
+    .main{
+        top: 50%;
+        width: 100%;
+        height: 100%;
+    }
+}
+
 @media (max-width: 958px) {
     body, html{
         overflow-x: hidden;
@@ -71,6 +79,7 @@ main{
     main {
         padding: 0px;
     }
+
     /* #waurlsite{
         display: none;
     } */
