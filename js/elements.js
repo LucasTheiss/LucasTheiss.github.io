@@ -26,9 +26,11 @@ function carregarHeader() {
             <div>
                 <a` 
                 if (index){
-                    headerHTML += ` href="#"`
-                } else {
+                    headerHTML += ` href=""`
+                } else if (cursos) {
                     headerHTML += ` href="../../"`
+                } else if (pages){
+                    headerHTML += ` href="../"`
                 }
                 headerHTML +=`>
                     <div class="logo" id="div-logo">
@@ -40,28 +42,30 @@ function carregarHeader() {
                 <ul>`
             if (index){
                 headerHTML += `
-                    <li><a href="#scroll-cursos" onclick="scrollIntoView()">Nossos cursos</a></li>
-                    <li><a href="#diferenciais" onclick="scrollIntoView()">Diferenciais</a></li>  
-                    <li><a href="#depoimento" onclick="scrollIntoView()">Depoimentos</a></li>  
+                    <li><a href="#scroll-cursos">Nossos cursos</a></li>
+                    <li><a href="#diferenciais">Diferenciais</a></li>  
+                    <li><a href="#depoimento">Depoimentos</a></li>  
                     <li><a href="quem-somos/">Quem somos</a></li>  
                     <li><a href="paciente-modelo/">Paciente modelo</a></li>
                 `
             } else if (cursos){
                 headerHTML += `
-                    <li><a href="../index.html">Início</a></li>
-                    <li><a href="#conteudo-programatico" onclick="scrollIntoView()">
+                    <li><a href="../../">Início</a></li>
+                    <li><a href="#conteudo-programatico">
                 `
                 headerHTML += !imersao ? `Conteúdo programático` : `Módulos`
                 
                 headerHTML += `</a></li>`
 
                 headerHTML += `
-                    <li><a href="#faq" onclick="scrollIntoView()">FAQ</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="../../quem-somos/">Quem somos</a></li>  
+                    <li><a href="../../paciente-modelo/">Paciente modelo</a></li>
                 `
             } else{
-                headerHTML += `<li><a href="../index.html"">Início</a></li>`
-                headerHTML += `<li><a href="../quem-somos"">Quem somos</a></li>`
-                headerHTML += `<li><a href="../paciente-modelo"">Paciente Modelo</a></li>`
+                headerHTML += `<li><a href="../">Início</a></li>`
+                headerHTML += `<li><a href="../quem-somos">Quem somos</a></li>`
+                headerHTML += `<li><a href="../paciente-modelo">Paciente Modelo</a></li>`
             }
 
             headerHTML += `
@@ -78,27 +82,29 @@ function carregarHeader() {
         <ul class="mobile-menu-list" id="mobile-menu-list">
         `
         if (index){
-        headerHTML += `
-            <li class="mobile-menu-item"><a href="#scroll-cursos" onclick="scrollIntoView()">Nossos cursos</a></li>
-            <li class="mobile-menu-item"><a href="#diferenciais" onclick="scrollIntoView()">Diferenciais</a></li>  
-            <li class="mobile-menu-item"><a href="#depoimento" onclick="scrollIntoView()">Depoimentos</a></li>  
-            <li class="mobile-menu-item"><a href="quem-somos/" target="_blank">Quem somos</a></li>  
-            <li class="mobile-menu-item"><a href="paciente-modelo/" target="_blank">Paciente modelo</a></li>
-        `
+            headerHTML += `
+                <li class="mobile-menu-item"><a href="#scroll-cursos">Nossos cursos</a></li>
+                <li class="mobile-menu-item"><a href="#diferenciais">Diferenciais</a></li>  
+                <li class="mobile-menu-item"><a href="#depoimento">Depoimentos</a></li>  
+                <li class="mobile-menu-item"><a href="quem-somos/" target="_blank">Quem somos</a></li>  
+                <li class="mobile-menu-item"><a href="paciente-modelo/" target="_blank">Paciente modelo</a></li>
+            `
         } else if (cursos){
             headerHTML += `
-                <li class="mobile-menu-item"><a href="../index.html">Início</a></li>
-                <li class="mobile-menu-item"><a href="#conteudo-programatico" onclick="scrollIntoView()">
+                <li class="mobile-menu-item"><a href="../../">Início</a></li>
+                <li class="mobile-menu-item"><a href="#conteudo-programatico">
+                <li class="mobile-menu-item"><a href="../../quem-somos/"">Quem somos</a></li>
+                <li class="mobile-menu-item"><a href="../../paciente-modelo/"">Paciente Modelo</a></li>
             `
             headerHTML += !imersao ? `Conteúdo programático` : `Módulos`
             
             headerHTML += `</a></li>`
 
             headerHTML += `
-                <li class="mobile-menu-item"><a href="#faq" onclick="scrollIntoView()">FAQ</a></li>
+                <li class="mobile-menu-item"><a href="#faq">FAQ</a></li>
             `
         } else {
-            headerHTML += `<li class="mobile-menu-item"><a href="../index.html"">Início</a></li>`
+            headerHTML += `<li class="mobile-menu-item"><a href="../">Início</a></li>`
             headerHTML += `<li class="mobile-menu-item"><a href="../quem-somos/"">Quem somos</a></li>`
             headerHTML += `<li class="mobile-menu-item"><a href="../paciente-modelo/"">Paciente Modelo</a></li>`
         }

@@ -44,7 +44,38 @@
     <br>
 <nav id="scroll-cursos">
     <center><hr></center> <!-- Linha separadora -->
+    <br>
+    <center>
+        <div class="titulo">
+            ANTES E DEPOIS
+        </div>
+        <hr class="linha-titulo">
+    </center>
+    <div id="modelos" class="modelos">
+        <div class="swiper-modelos">
+            <div class="swiper-wrapper" id="swiper-wrapper">
+                <div class='swiper-slide'>
+                    <img src="../assets/modelo1.jpg">
+                </div>
+                <div class='swiper-slide'>
+                    <img src="../assets/modelo2.jpg">
+                </div>
+                <div class='swiper-slide'>
+                    <img src="../assets/modelo3.jpg">
+                </div>
+                <div class='swiper-slide'>
+                    <img src="../assets/modelo5.jpg">
+                </div>
+                <div class='swiper-slide'>
+                    <img src="../assets/modelo4.jpg">
+                </div>
+            </div>
 
+            <div class="swiper-pagination" id="swiper-pagination"></div>
+            <div class="swiper-button-prev" id="modelos-prev"></div>
+            <div class="swiper-button-next" id="modelos-next"></div>
+        </div>
+    </div>
     <br>
     <center>
         <div id="titulo-quem-somos">Vantagens</div>
@@ -84,24 +115,22 @@
     <div class="container procedimentos">
         <div class="card-grid">
             <div class="grid-item">
-                <img src="../assets/Ultrassom microfocado.PNG" alt=""><br>
-                Ultrassom microfocado
+                <img src="../assets/pacientemodelo.jpg" alt="">
             </div>
             <div class="grid-item">
-                <img src="../assets/Lavieen.PNG" alt=""><br>
-                Lavieen
+                <img src="../assets/pacientemodelo1.jpg" alt="">
             </div>
             <div class="grid-item">
-                <img src="../assets/Preenchedores faciais.PNG" alt=""><br>
-                Preenchedores Faciais
+                <img src="../assets/pacientemodelo2.jpg" alt="">
             </div>
             <div class="grid-item">
-                <img src="../assets/Bioestimulador de colágeno.PNG" alt=""><br>
-                Bioestimulador de colágeno
+                <img src="../assets/pacientemodelo3.jpg" alt="">
             </div>
             <div class="grid-item">
-                <img src="../assets/Toxina botulínica.PNG" alt=""><br>
-                Toxina Butolínica
+                <img src="../assets/pacientemodelo4.jpg" alt="">
+            </div>
+            <div class="grid-item">
+                <img src="../assets/pacientemodelo5.jpg" alt="">
             </div>
         </div>
     </div>
@@ -116,43 +145,44 @@
 <!-- <script type="text/javascript">function showIt2() {document.getElementById("msg1").style.visibility = "visible";}    setTimeout("showIt2()", 5000); function hiddenIt() {document.getElementById("msg1").style.visibility = "hidden";}setTimeout("hiddenIt()", 15000); function showIt3() {document.getElementById("msg1").style.visibility = "visible";} setTimeout("showIt3()", 25000);  msg1.onclick = function() {document.getElementById('msg1').style.visibility = "hidden"; };function alertW() { document.getElementById("alertWapp").style.visibility = "visible";	} setTimeout("alertW()", 15000); </script> -->
 <!-- END Widget WhastApp -->
 <script src="../js/elements.js"></script>
-<!-- script dos videos -->
-<script>
-    const cards = document.querySelectorAll('.card-depoimento');
 
-    cards.forEach(card => {
-        const img = card.querySelector('.imagem-depoimento');
-        const video = card.querySelector('.video-depoimento');
-
-        // Mostrar vídeo e tocar
-        img.addEventListener('click', () => {
-            // Pausa todos os outros vídeos
-            document.querySelectorAll('.video-depoimento').forEach(v => {
-                if (v !== video) {
-                    v.pause();
-                    v.style.display = 'none';
-                    const parent = v.closest('.card-depoimento');
-                    const siblingImg = parent.querySelector('.imagem-depoimento');
-                    if (siblingImg) siblingImg.style.display = 'block';
-                }
-            });
-
-            img.style.display = 'none';
-            video.style.display = 'block';
-            video.play();
-        });
-
-        // Pausar vídeo e voltar para imagem
-        video.addEventListener('click', () => {
-            video.pause();
-            video.style.display = 'none';
-            img.style.display = 'block';
-        });
-    });
-</script>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://kit.fontawesome.com/479b35ea58.js" crossorigin="anonymous"></script>
+<!-- slider -->
+<script>
+    const modelosSwiper = new Swiper('.swiper-modelos', {
+        direction: 'horizontal',
+        loop: true,
+        grabCursor: true,
+        centeredSlides: true,
+        
+        navigation: {
+            nextEl: '#modelos-next',
+            prevEl: '#modelos-prev',
+        },
+
+        // pagination: {
+        //     el: '.swiper-pagination',
+        //     clickable: true,
+        // },
+        spaceBetween: 30,
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+            },
+            640: {
+                slidesPerView: 2,
+            },
+            1049: {
+                slidesPerView: 3,
+            },
+            1388: {
+                slidesPerView: 3,
+            },
+        },
+    });
+</script>
 
 </body>
 </html>

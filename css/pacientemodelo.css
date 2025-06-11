@@ -19,19 +19,19 @@
     background-color: #1b2e50;
     color: white;
     width: 100%;
-    padding-bottom: 60px;
-
-    & img{
-        width: 150px;
-    }
 
     & .grid-item{
+        width: fit-content;
         background-color: #091426;
-        padding: 20px;
     }
 
     & .grid-item:hover{
         cursor: pointer;
+    }
+
+    & .grid-item img{
+        min-width: 100%;
+        border-radius: 20px;
     }
 }
 
@@ -50,6 +50,17 @@
         margin-bottom: 20px;
         margin-top: 10px;
     }
+}
+
+.swiper-modelos{
+    position: relative;
+    width: 90%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.swiper-slide img{
+    width: 100%;
 }
 
 @media (max-width: 1098px){

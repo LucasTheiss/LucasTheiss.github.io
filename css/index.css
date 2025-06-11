@@ -57,6 +57,14 @@ body{
     flex-direction: column;
 }
 
+.titulo{
+    text-transform: uppercase;
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .noticia{
     height: fit-content;
     background-color: #00244a;
@@ -239,9 +247,9 @@ hr{
 }
 
 .card-grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     justify-content: center; /* Centraliza a última linha se incompleta */
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     max-width: 1000px;
     margin: 0 auto;
@@ -397,9 +405,9 @@ button:hover{
 }
 
 @media (max-width: 958px){
-    .image-grid{
+    .card-grid{
         width: 100%;
-        padding: 10px 40px;
+        padding: 10px 20px;
         grid-template-columns: repeat(2, 1fr);
     }
     .container{
