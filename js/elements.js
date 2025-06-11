@@ -13,10 +13,10 @@ function mobileMenuToggle(){
 
 function carregarHeader() {
     const pathname = window.location.pathname;
-    const pacienteModelo = pathname.endsWith('paciente-modelo/')
-    const imersao = pathname.endsWith('harmonizacao-facial/')
+    const pages = pathname.endsWith('paciente-modelo/') || pathname.endsWith('quem-somos/')
     const cursos = ['tricologia/', 'perfiloplastia/', 'harmonizacao-facial/'].some(curso => pathname.endsWith(curso));
-    const index = !(pacienteModelo || cursos || imersao);
+    const imersao = pathname.endsWith('harmonizacao-facial/')
+    const index = !(pages || cursos || imersao);
 
     let headerHTML = `
         <header class="header"` 
@@ -60,6 +60,8 @@ function carregarHeader() {
                 `
             } else{
                 headerHTML += `<li><a href="../index.html"">Início</a></li>`
+                headerHTML += `<li><a href="../quem-somos"">Quem somos</a></li>`
+                headerHTML += `<li><a href="../paciente-modelo"">Paciente Modelo</a></li>`
             }
 
             headerHTML += `
@@ -97,6 +99,8 @@ function carregarHeader() {
             `
         } else {
             headerHTML += `<li class="mobile-menu-item"><a href="../index.html"">Início</a></li>`
+            headerHTML += `<li class="mobile-menu-item"><a href="../quem-somos/"">Quem somos</a></li>`
+            headerHTML += `<li class="mobile-menu-item"><a href="../paciente-modelo/"">Paciente Modelo</a></li>`
         }
 
         headerHTML += `</ul>`
