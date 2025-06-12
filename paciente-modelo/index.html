@@ -134,6 +134,54 @@
             </div>
         </div>
     </div>
+
+    <!-- <div class="video-modelo">
+        <video loop playsinline>
+            <source src="../assets/video-modelo.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos em HTML5.
+        </video>
+    </div> -->
+
+    <div class="container faq" id="faq">
+        <p class="destaque-2">FAQ</p>
+        <div class="subcontainer">
+            <ul>
+                <li class="titulo-faq">
+                    <div class="sinal abrir">
+                        <div class="block"></div>
+                        <div class="block"></div>
+                    </div>
+                    Quem realiza o procedimento?
+                </li>
+                <li class="conteudo-faq oculto">
+                    Os procedimentos são realizados pelos alunos dos nossos cursos, 
+                    com supervisão constante de profissionais experientes. 
+                    Cada atendimento é feito com a garantia de segurança e qualidade.
+                </li>
+                <li class="titulo-faq">
+                    <div class="sinal abrir">
+                        <div class="block"></div>
+                        <div class="block"></div>
+                    </div>
+                    Qual a diferença entre ser paciente modelo e fazer um procedimento comum?
+                </li>
+                <li class="conteudo-faq oculto">
+                    A vantagem de ser paciente modelo é que
+                    o valor é mais acessível por ser parte de um processo educativo e o atendimento é supervisionado.
+                </li>
+                <li class="titulo-faq">
+                    <div class="sinal abrir">
+                        <div class="block"></div>
+                        <div class="block"></div>
+                    </div>
+                    Vou aparecer em fotos e vídeos? Posso optar por não aparecer?
+                </li>
+                <li class="conteudo-faq oculto">
+                    Sim, você pode optar por não aparecer. A divulgação só acontece com sua autorização.
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>
 
 <!-- FOOTER -->
@@ -149,6 +197,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://kit.fontawesome.com/479b35ea58.js" crossorigin="anonymous"></script>
+<script src="../js/faq.js"></script>
 <!-- slider -->
 <script>
     const modelosSwiper = new Swiper('.swiper-modelos', {
@@ -181,6 +230,34 @@
                 slidesPerView: 3,
             },
         },
+    });
+</script>
+
+<script>
+    // TODO
+    const img = 
+    img.addEventListener('click', () => {
+        // Pausa todos os outros vídeos
+        document.querySelectorAll('.video-depoimento').forEach(v => {
+            if (v !== video) {
+                v.pause();
+                v.style.display = 'none';
+                const parent = v.closest('.card-depoimento');
+                const siblingImg = parent.querySelector('.imagem-depoimento');
+                if (siblingImg) siblingImg.style.display = 'block';
+            }
+        });
+
+        img.style.display = 'none';
+        video.style.display = 'block';
+        video.play();
+    });
+
+    // Pausar vídeo e voltar para imagem
+    video.addEventListener('click', () => {
+        video.pause();
+        video.style.display = 'none';
+        img.style.display = 'block';
     });
 </script>
 
