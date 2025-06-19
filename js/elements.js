@@ -46,7 +46,7 @@ function carregarHeader() {
                     <li><a href="#diferenciais">Diferenciais</a></li>  
                     <li><a href="#depoimento">Depoimentos</a></li>  
                     <li><a href="quem-somos/">Quem somos</a></li>  
-                    <li><a href="paciente-modelo/">Paciente modelo</a></li>
+                    <li><a href="../paciente-modelo">Paciente modelo</a></li>
                 `
             } else if (cursos){
                 headerHTML += `
@@ -87,14 +87,14 @@ function carregarHeader() {
                 <li class="mobile-menu-item"><a href="#diferenciais">Diferenciais</a></li>  
                 <li class="mobile-menu-item"><a href="#depoimento">Depoimentos</a></li>  
                 <li class="mobile-menu-item"><a href="quem-somos/" target="_blank">Quem somos</a></li>  
-                <li class="mobile-menu-item"><a href="paciente-modelo/" target="_blank">Paciente modelo</a></li>
+                <li class="mobile-menu-item"><a href="paciente-modelo/">Paciente modelo</a></li>
             `
         } else if (cursos){
             headerHTML += `
                 <li class="mobile-menu-item"><a href="../../">Início</a></li>
-                <li class="mobile-menu-item"><a href="#conteudo-programatico">
                 <li class="mobile-menu-item"><a href="../../quem-somos/"">Quem somos</a></li>
                 <li class="mobile-menu-item"><a href="../../paciente-modelo/"">Paciente Modelo</a></li>
+                <li class="mobile-menu-item"><a href="#conteudo-programatico">
             `
             headerHTML += !imersao ? `Conteúdo programático` : `Módulos`
             
