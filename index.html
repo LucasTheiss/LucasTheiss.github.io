@@ -81,7 +81,12 @@
             Porque formar com qualidade é transformar o futuro da estética.
         </p>
         <div class="card-grid" id="card-grid">
-
+            <img class="grid-item" src="../assets/diferenciais/Slogans.zip - 22.png">
+            <img class="grid-item" src="../assets/diferenciais/Slogans.zip - 23.png">
+            <img class="grid-item" src="../assets/diferenciais/Slogans.zip - 24.png">
+            <img class="grid-item" src="../assets/diferenciais/Slogans.zip - 25.png">
+            <img class="grid-item" src="../assets/diferenciais/Slogans.zip - 26.png">
+            <img class="grid-item" src="../assets/diferenciais/Slogans.zip - 27.png">
         </div>
     <!-- Fim Diferenciais -->
     </div>
@@ -199,44 +204,9 @@
 <!-- <script type="text/javascript">function showIt2() {document.getElementById("msg1").style.visibility = "visible";}    setTimeout("showIt2()", 5000); function hiddenIt() {document.getElementById("msg1").style.visibility = "hidden";}setTimeout("hiddenIt()", 15000); function showIt3() {document.getElementById("msg1").style.visibility = "visible";} setTimeout("showIt3()", 25000);  msg1.onclick = function() {document.getElementById('msg1').style.visibility = "hidden"; };function alertW() { document.getElementById("alertWapp").style.visibility = "visible";	} setTimeout("alertW()", 15000); </script> -->
 <!-- END Widget WhastApp -->
 
-<!-- script dos videos -->
-<script>
-    const cards = document.querySelectorAll('.card-depoimento');
-
-    cards.forEach(card => {
-        const img = card.querySelector('.imagem-depoimento');
-        const video = card.querySelector('.video-depoimento');
-
-        // Mostrar vídeo e tocar
-        img.addEventListener('click', () => {
-            // Pausa todos os outros vídeos
-            document.querySelectorAll('.video-depoimento').forEach(v => {
-                if (v !== video) {
-                    v.pause();
-                    v.style.display = 'none';
-                    const parent = v.closest('.card-depoimento');
-                    const siblingImg = parent.querySelector('.imagem-depoimento');
-                    if (siblingImg) siblingImg.style.display = 'block';
-                }
-            });
-
-            img.style.display = 'none';
-            video.style.display = 'block';
-            video.play();
-        });
-
-        // Pausar vídeo e voltar para imagem
-        video.addEventListener('click', () => {
-            video.pause();
-            video.style.display = 'none';
-            img.style.display = 'block';
-        });
-    });
-</script>
-<script src="js/index.js"></script>
-<script src="js/elements.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="https://kit.fontawesome.com/479b35ea58.js" crossorigin="anonymous"></script>
+<script defer src="js/index.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script defer src="https://kit.fontawesome.com/479b35ea58.js" crossorigin="anonymous"></script>
 
 </body>
 </html>
