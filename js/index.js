@@ -297,7 +297,7 @@ if (path == "/index.html" || path == "/"){
                 '../assets/background2.avif',
                 '../assets/background3.avif'  
             ]
-
+//
             var textos = [
                 '<center class="texto" id="texto">A excelência é conquistada <br>através da prática constante</center>',
                 '<center class="texto" id="texto">Mova-se com a <span style="color: rgb(0, 213, 255)">Move</span></center><br>',
