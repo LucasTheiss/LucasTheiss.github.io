@@ -23,41 +23,35 @@ main{
     position: absolute;
     top: 50%;
     left: 50%;
-    /* height: 100%; */
     transform: translate(-50%, -50%);
     z-index: 0;
     object-fit: cover;
-    filter: brightness(0.2);
+    filter: brightness(0.8); 
+    width: 101%;
+    transition: opacity 1.0s ease-in-out;
+}
+
+#div-texto {
+    position: relative;
+    z-index: 2;
+    color: var(--white);
+    text-align: center;
+    padding-top: 200px;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.texto {
+    padding-bottom: 300px;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    transition: color 1s ease, opacity 1s ease;
+    user-select: none;
 }
 
 .main{
     top: 73%;
     filter: brightness(0.8);
     width: 101%;
-}
-
-#div-texto {
-    position: relative;
-    z-index: 2;
-    color: white;
-    text-align: center;
-    font-size: 2rem;
-
-    & .secundario{
-        font-weight: 400;
-        font-size: 1rem;
-    }
-}
-
-.texto{
-    padding-bottom: 300px;
-    padding-top: 200px;
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    transition: color 1s ease, opacity 1s ease;
-    color: white;
-    user-select: none;
-    z-index: 11;
 }
 
 @media (max-width: 1479px) {

@@ -294,8 +294,8 @@ if (path == "/index.html" || path == "/"){
             var divTexto = document.getElementById('div-texto');
 
             var backgrounds = [
-                '../assets/background2.jpg',
-                '../assets/background3.jpg'
+                '../assets/background2.avif',
+                '../assets/background3.avif'  
             ]
 
             var textos = [
@@ -303,29 +303,27 @@ if (path == "/index.html" || path == "/"){
                 '<center class="texto" id="texto">Mova-se com a <span style="color: rgb(0, 213, 255)">Move</span></center><br>',
             ]
 
-            var currentIndex = 1;
+            var currentIndex = 0; 
 
             function updateContent() {
-                background.style.opacity = 0.8;
-                divTexto.style.opacity = 0.8;
+                background.style.opacity = 0;
+                divTexto.style.opacity = 0;
 
                 setTimeout(function() {
+                    currentIndex = (currentIndex + 1) % backgrounds.length; 
                     background.src = backgrounds[currentIndex];
                     divTexto.innerHTML = textos[currentIndex];
 
-                    setTimeout(function() {
-                        background.style.opacity = 1;
-                        divTexto.style.opacity = 1;
-                    }, 150);
-
-                    currentIndex = (currentIndex + 1) % backgrounds.length;
-                }, 50);
+                    background.style.opacity = 1;
+                    divTexto.style.opacity = 1;
+                }, 1000); 
             }
 
             setInterval(updateContent, 7000);
         }
         switchBackground()
     }
+
     const estruturaswiper = new Swiper('.swiper-estrutura', {
         direction: 'horizontal',
         grabCursor: true,
