@@ -276,9 +276,9 @@ hr{
     flex-direction: column;
 }
 
-.grid-item:hover {
+/* .grid-item:hover {
     transform: scale(1.05);
-}
+} */
 
 .linha-titulo{
     width: 10rem;
