@@ -295,7 +295,7 @@ if (path == "/index.html" || path == "/"){
 
             var backgrounds = [
                 '../assets/background2.avif',
-                '../assets/background3.avif'  
+                '../assets/background1.avif'  
             ]
 //
             var textos = [
