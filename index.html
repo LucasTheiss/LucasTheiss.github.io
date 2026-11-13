@@ -43,7 +43,11 @@
     <section class="hero">
         <img class="hero-midia" src="/assets/background2.avif" data-fundos="/assets/background2.avif,/assets/background1.avif" alt="">
         <div class="wrap hero-conteudo">
-            <h1>A excelência é conquistada através da prática constante</h1>
+            <!-- Cada frase acompanha uma foto de data-fundos, na mesma ordem. Leitores de tela leem só a primeira. -->
+            <h1 class="hero-frases">
+                <span class="hero-frase ativa">Mova-se com a <em>Move</em></span>
+                <span class="hero-frase" aria-hidden="true">A excelência é conquistada através da prática constante</span>
+            </h1>
             <p class="hero-texto">Cursos de estética avançada para profissionais da saúde, com prática supervisionada em pacientes modelos no Instituto Move Medical, em Balneário Camboriú.</p>
             <div class="acoes">
                 <a class="botao botao-primario" href="#cursos">Conheça os cursos</a>
@@ -60,27 +64,21 @@
             </div>
             <ul class="cursos-grade">
                 <li class="curso-cartao">
-                    <img src="/assets/cursos/curso-harmonizacao-facial.avif" alt="" loading="lazy">
-                    <div class="curso-cartao-texto">
-                        <h3><a href="/cursos/harmonizacao-facial/">Imersão em Harmonização Facial</a></h3>
-                        <p>Formato de residência: 220 horas, 2 dias por mês, com prática em pacientes.</p>
-                        <span class="ver-curso" aria-hidden="true">Ver curso</span>
+                    <img src="/assets/cursos/curso-harmonizacao-facial.avif" alt="Imersão em Harmonização Facial" loading="lazy">
+                    <div class="curso-cartao-acao">
+                        <a class="botao botao-primario" href="/cursos/harmonizacao-facial/" aria-label="Ver curso: Imersão em Harmonização Facial">Ver curso</a>
                     </div>
                 </li>
                 <li class="curso-cartao">
-                    <img src="/assets/cursos/curso-perfiloplastia.avif" alt="" loading="lazy">
-                    <div class="curso-cartao-texto">
-                        <h3><a href="/cursos/perfiloplastia/">Imersão em Perfiloplastia</a></h3>
-                        <p>2 dias intensivos: técnicas de nariz, lábios e mento, com prática supervisionada.</p>
-                        <span class="ver-curso" aria-hidden="true">Ver curso</span>
+                    <img src="/assets/cursos/curso-perfiloplastia.avif" alt="Imersão em Perfiloplastia" loading="lazy">
+                    <div class="curso-cartao-acao">
+                        <a class="botao botao-primario" href="/cursos/perfiloplastia/" aria-label="Ver curso: Imersão em Perfiloplastia">Ver curso</a>
                     </div>
                 </li>
                 <li class="curso-cartao">
-                    <img src="/assets/cursos/curso-tricologia.avif" alt="" loading="lazy">
-                    <div class="curso-cartao-texto">
-                        <h3><a href="/cursos/tricologia/">Tricologia Clínica</a></h3>
-                        <p>2 dias: avaliação, diagnóstico e tratamentos capilares, com consulta comentada.</p>
-                        <span class="ver-curso" aria-hidden="true">Ver curso</span>
+                    <img src="/assets/cursos/curso-tricologia.avif" alt="Tricologia Clínica" loading="lazy">
+                    <div class="curso-cartao-acao">
+                        <a class="botao botao-primario" href="/cursos/tricologia/" aria-label="Ver curso: Tricologia Clínica">Ver curso</a>
                     </div>
                 </li>
             </ul>
@@ -116,8 +114,8 @@
                     <div class="swiper-slide"><img src="/assets/estrutura2.jpg" alt="Área de apoio com bancada e armários" loading="lazy"></div>
                     <div class="swiper-slide"><img src="/assets/estrutura3.jpg" alt="Recepção do instituto com o letreiro Mova-se com a Move" loading="lazy"></div>
                 </div>
-                <div class="swiper-button-prev" aria-label="Foto anterior"></div>
-                <div class="swiper-button-next" aria-label="Próxima foto"></div>
+                <button type="button" class="swiper-button-prev" aria-label="Foto anterior"></button>
+                <button type="button" class="swiper-button-next" aria-label="Próxima foto"></button>
                 <div class="swiper-pagination"></div>
             </div>
         </div>
@@ -195,8 +193,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="swiper-button-prev" aria-label="Depoimento anterior"></div>
-                <div class="swiper-button-next" aria-label="Próximo depoimento"></div>
+                <button type="button" class="swiper-button-prev" aria-label="Depoimento anterior"></button>
+                <button type="button" class="swiper-button-next" aria-label="Próximo depoimento"></button>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
