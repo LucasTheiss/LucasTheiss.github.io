@@ -191,6 +191,8 @@ body.tem-hero .site-header { position: absolute; inset: 0 0 auto 0; background: 
 .curso-cartao-acao { padding: 1rem 1.25rem 1.25rem; margin-top: auto; }
 .curso-cartao-acao .botao { width: 100%; }
 .curso-cartao a::after { content: ""; position: absolute; inset: 0; }
+/* Sem transform no clique: ele prende o ::after ao botão e o resto do cartão deixa de ser link. */
+.curso-cartao .botao:active { transform: none; }
 .curso-cartao:hover .botao-primario { background: var(--acento-forte-hover); }
 
 /* ---------- Diferenciais ---------- */
@@ -312,7 +314,8 @@ body.tem-hero .site-header { position: absolute; inset: 0 0 auto 0; background: 
         linear-gradient(var(--acento-forte), var(--acento-forte)) center / 2px 100% no-repeat;
     transition: transform 0.3s var(--ease-saida);
 }
-.faq-lista details[open] summary::after { transform: rotate(45deg); }
+/* .fechando: o ícone volta já no clique, enquanto o details ainda fecha. */
+.faq-lista details[open]:not(.fechando) summary::after { transform: rotate(45deg); }
 .faq-lista details p { padding: 0 1.25rem 1.25rem; color: var(--texto-suave); max-width: 65ch; }
 
 /* ---------- Paciente modelo ---------- */

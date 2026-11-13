@@ -196,6 +196,7 @@ function prepararCarrosseis(resetarVideo) {
     if (document.querySelector('.carrossel-depoimentos')) {
         const depoimentos = new Swiper('.carrossel-depoimentos', {
             a11y: a11y('Depoimento anterior', 'Próximo depoimento'),
+            loop: true,
             spaceBetween: 24,
             grabCursor: true,
             breakpoints: grade,
@@ -242,6 +243,40 @@ function alternarFundoHero() {
     }, 8000);
 }
 
+// Dúvidas (details): abre e fecha deslizando em vez de pular. Sem JS ou com movimento
+// reduzido, continua o details nativo.
+function animarDuvidas() {
+    if (reduzirMovimento) return;
+    const efeito = { duration: 380, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' };
+    document.querySelectorAll('.faq-lista details').forEach((item) => {
+        const pergunta = item.querySelector('summary');
+        let animacao = null;
+        pergunta.addEventListener('click', (e) => {
+            e.preventDefault();
+            const abrindo = !item.open || item.classList.contains('fechando');
+            const inicio = item.offsetHeight;
+            animacao?.cancel();
+            item.style.overflow = 'hidden';
+            item.open = true;
+            item.classList.toggle('fechando', !abrindo);
+            const bordas = item.offsetHeight - item.clientHeight;
+            const fim = abrindo ? item.scrollHeight + bordas : pergunta.offsetHeight + bordas;
+            animacao = item.animate({ height: [`${inicio}px`, `${fim}px`] }, efeito);
+            const resposta = [...item.children].filter((el) => el !== pergunta);
+            resposta.forEach((el) => el.animate(
+                abrindo ? { opacity: [0, 1], transform: ['translateY(-6px)', 'none'] } : { opacity: [1, 0] },
+                { ...efeito, fill: 'both' },
+            ).finished.then((a) => a.cancel?.()).catch(() => {}));
+            animacao.onfinish = () => {
+                if (!abrindo) item.open = false;
+                item.classList.remove('fechando');
+                item.style.overflow = '';
+                animacao = null;
+            };
+        });
+    });
+}
+
 // O WhatsApp flutuante some enquanto um botão de WhatsApp já está à vista (hero e rodapé),
 // para não cobrir botões nem textos no celular.
 function ocultarWhatsappFlutuante() {
@@ -260,6 +295,7 @@ carregarCabecalho();
 carregarRodape();
 prepararWhatsapp();
 ocultarWhatsappFlutuante();
+animarDuvidas();
 const resetarVideo = prepararVideos();
 
 document.addEventListener('DOMContentLoaded', () => {
