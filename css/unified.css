@@ -255,6 +255,16 @@ body.tem-hero .site-header { position: absolute; inset: 0 0 auto 0; background: 
 .curso-hero { background: var(--curso-fundo); color: var(--sobre-escuro); padding-block: clamp(3rem, 7vw, 5.5rem); }
 .curso-hero-grade { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
 .curso-hero h1 { color: #fff; }
+/* Desktop: cabeçalho + hero ocupam exatamente a tela. O cabeçalho (mesma cor do hero)
+   passa a flutuar sobre ele, e o hero desconta sua altura (logo 80px + 1.5rem). */
+@media (min-width: 961px) {
+    body[data-pagina="curso"] .site-header { position: absolute; inset: 0 0 auto 0; background: transparent; }
+    body[data-pagina="curso"] .curso-hero {
+        min-height: 100vh; min-height: 100svh;
+        display: flex; align-items: center;
+        padding-block: calc(80px + 1.5rem + 2rem) 2rem;
+    }
+}
 .curso-hero .lide { margin-top: 1.25rem; font-size: clamp(1.15rem, 1.8vw, 1.4rem); color: #fff; max-width: 40ch; font-family: var(--fonte-titulo); font-weight: 500; }
 
 .fatos {
