@@ -8,11 +8,11 @@
     <meta name="author" content="Move Medical">
 
     <!-- Fonte Montserrat -->
-     <link rel="preload" as="image" href="assets/depoimentos/capaVideo1.png">
-     <link rel="preload" as="image" href="assets/depoimentos/capaVideo2.png">
-     <link rel="preload" as="image" href="assets/depoimentos/capaVideo3.png">
-     <link rel="preload" as="image" href="assets/depoimentos/capaVideo4.png">
-     <link rel="preload" as="image" href="assets/depoimentos/capaVideo5.png">
+     <link rel="preload" as="image" href="assets/depoimentos/capaVideo1.avif">
+     <link rel="preload" as="image" href="assets/depoimentos/capaVideo2.avif">
+     <link rel="preload" as="image" href="assets/depoimentos/capaVideo3.avif">
+     <link rel="preload" as="image" href="assets/depoimentos/capaVideo4.avif">
+     <link rel="preload" as="image" href="assets/depoimentos/capaVideo5.avif">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">     
@@ -35,7 +35,7 @@
     </script>
 </head>
 <body>
-    <button id="voltar-topo" onclick="voltarAoTopo()">↑</button>
+    <button id="voltar-topo" aria-label="Voltar ao topo" onclick="voltarAoTopo()">↑</button>
     
     <main class="background">
         
@@ -61,14 +61,17 @@
     </div>
     <div class="swiper">
         <div class="swiper-wrapper" id="swiper-wrapper">
-            <div class='swiper-slide' onclick="window.location.href = 'cursos/tricologia/'">
-                <img src="assets/cursos/Imersão-em-Rino-e-Lábio-2.avif">
+            <div class="swiper-slide"><a href="cursos/tricologia/">
+                <img src="assets/cursos/Imersão-em-Rino-e-Lábio-2.avif" alt="Curso de Tricologia">
+                </a>
             </div>
-            <div class="swiper-slide" onclick="window.location.href = 'cursos/harmonizacao-facial/'">
-                <img src="assets/cursos/Imersão-em-Rino-e-Lábio-3.avif">
+            <div class="swiper-slide"><a href="cursos/harmonizacao-facial/">
+                <img src="assets/cursos/Imersão-em-Rino-e-Lábio-3.avif" alt="Curso de Harmonização Facial">
+                </a>
             </div>
-            <div class="swiper-slide" onclick="window.location.href = 'cursos/perfiloplastia/'">
-                <img src="assets/cursos/Imersão-em-Rino-e-Lábio-4.avif">
+            <div class="swiper-slide"><a href="cursos/perfiloplastia/">
+                <img src="assets/cursos/Imersão-em-Rino-e-Lábio-4.avif" alt="Curso de Perfiloplastia">
+                </a>
             </div>
         </div>
 
@@ -88,12 +91,12 @@
             Porque formar com qualidade é transformar o futuro da estética.
         </p>
         <div class="card-grid" id="card-grid">
-            <img class="grid-item" src="../assets/diferenciais/Slogans-22.avif">
-            <img class="grid-item" src="../assets/diferenciais/Slogans-23.avif">
-            <img class="grid-item" src="../assets/diferenciais/Slogans-24.avif">
-            <img class="grid-item" src="../assets/diferenciais/Slogans-25.avif">
-            <img class="grid-item" src="../assets/diferenciais/Slogans-26.avif">
-            <img class="grid-item" src="../assets/diferenciais/Slogans-27.avif">
+            <img class="grid-item" src="assets/diferenciais/Slogans-22.avif">
+            <img class="grid-item" src="assets/diferenciais/Slogans-23.avif">
+            <img class="grid-item" src="assets/diferenciais/Slogans-24.avif">
+            <img class="grid-item" src="assets/diferenciais/Slogans-25.avif">
+            <img class="grid-item" src="assets/diferenciais/Slogans-26.avif">
+            <img class="grid-item" src="assets/diferenciais/Slogans-27.avif">
         </div>
     <!-- Fim Diferenciais -->
     </div>
@@ -123,8 +126,8 @@
         </center>
         <div class="swiper-estrutura">
             <div class="swiper-wrapper" id="swiper-wrapper-estrutura">
-                <div class="swiper-slide"><img src="assets\estrutura1.jpg"></div>
-                <div class="swiper-slide"><img src="assets\estrutura3.jpg"></div>                    
+                <div class="swiper-slide"><img src="assets/estrutura1.jpg"></div>
+                <div class="swiper-slide"><img src="assets/estrutura3.jpg"></div>                    
             </div>
 
             <div class="swiper-button-prev estrutura-prev" id="estrutura-prev"></div>
@@ -148,7 +151,7 @@
                 <div class="swiper-slide">
                     <div class="card-depoimento">
                         <img class="imagem-depoimento" src="assets/depoimentos/capaVideo1.avif">
-                        <video class="video-depoimento" loop playsinline preload="auto">
+                        <video class="video-depoimento" loop playsinline preload="none">
                             <source src="assets/depoimentos/video1.mp4" type="video/mp4">
                             Seu navegador não suporta vídeos HTML5.
                         </video>
@@ -158,7 +161,7 @@
                 <div class="swiper-slide">
                     <div class="card-depoimento">
                         <img class="imagem-depoimento" src="assets/depoimentos/capaVideo2.avif">
-                        <video class="video-depoimento" loop playsinline preload="auto">
+                        <video class="video-depoimento" loop playsinline preload="none">
                             <source src="assets/depoimentos/video2.mp4" type="video/mp4">
                             Seu navegador não suporta vídeos HTML5.
                         </video>
@@ -168,7 +171,7 @@
                 <div class="swiper-slide">
                     <div class="card-depoimento">
                         <img class="imagem-depoimento" src="assets/depoimentos/capaVideo3.avif">
-                        <video class="video-depoimento" loop playsinline preload="auto">
+                        <video class="video-depoimento" loop playsinline preload="none">
                             <source src="assets/depoimentos/video3.mp4" type="video/mp4">
                             Seu navegador não suporta vídeos HTML5.
                         </video>
@@ -178,7 +181,7 @@
                 <div class="swiper-slide">
                     <div class="card-depoimento">
                         <img class="imagem-depoimento" src="assets/depoimentos/capaVideo4.avif">
-                        <video class="video-depoimento" loop playsinline preload="auto">
+                        <video class="video-depoimento" loop playsinline preload="none">
                             <source src="assets/depoimentos/video4.mp4" type="video/mp4">
                             Seu navegador não suporta vídeos HTML5.
                         </video>
@@ -188,7 +191,7 @@
                 <div class="swiper-slide">
                     <div class="card-depoimento">
                         <img class="imagem-depoimento" src="assets/depoimentos/capaVideo5.avif">
-                        <video class="video-depoimento" loop playsinline preload="auto">
+                        <video class="video-depoimento" loop playsinline preload="none">
                             <source src="assets/depoimentos/video5.mp4" type="video/mp4">
                             Seu navegador não suporta vídeos HTML5.
                         </video>

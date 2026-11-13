@@ -78,7 +78,7 @@ body {
     margin: 0 auto;
     gap: 40px;
     margin-bottom: 20px;
-    padding: 20px 0;
+    padding: 20px 1.5rem;
 }
 
 .destaque {
@@ -396,7 +396,6 @@ input::placeholder {
 
 input:focus {
     border: none;
-    outline: none;
 }
 
 button {
@@ -1179,5 +1178,38 @@ main {
     }
     .sessao-quem-somos div {
         width: 85%;
+    }
+}
+
+
+:focus-visible {
+    outline: 2px solid #00afd8;
+    outline-offset: 2px;
+}
+
+.swiper .swiper-slide a {
+    display: block;
+}
+
+button.menu-icon,
+button.menu-icon:hover {
+    background: none;
+    border: 0;
+    padding: 0;
+    width: auto;
+    cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    .card-grid img,
+    .grid-item,
+    #mobile-menu-list,
+    .block,
+    .faq .sinal,
+    .faq .block {
+        transition-duration: 0.01ms;
     }
 }

@@ -11,7 +11,7 @@ window.onscroll = function () {
 function voltarAoTopo() {
     window.scrollTo({
     top: 0,
-    behavior: 'smooth'
+    behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
     });
 }
 
@@ -28,16 +28,12 @@ window.onclick = function(event) {
 }
 
 function mobileMenuToggle(){
-    let menu = document.getElementById("mobile-menu-list")
-    let menuIcon = document.getElementById("menu-icon")
-    
-    if (menuIcon.classList.contains('active')){
-        menuIcon.classList.remove("active")
-        menu.classList.remove("active")
-        return
-    }
-    menuIcon.classList.toggle("active")
-    menu.classList.toggle("active")
+    const menu = document.getElementById("mobile-menu-list")
+    const menuIcon = document.getElementById("menu-icon")
+    const aberto = menuIcon.classList.toggle("active")
+    menu.classList.toggle("active", aberto)
+    menuIcon.setAttribute("aria-expanded", aberto)
+    menuIcon.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu")
 }
 
 function carregarHeader() {
@@ -97,11 +93,11 @@ function carregarHeader() {
     headerHTML += `
                 </ul>
                 <div class="mobile-menu" id="mobile-menu">
-                    <div class="menu-icon" id="menu-icon" onclick="mobileMenuToggle()">
+                    <button type="button" class="menu-icon" id="menu-icon" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu-list" onclick="mobileMenuToggle()">
                         <div class="block"></div>
                         <div class="block"></div>
                         <div class="block"></div>
-                    </div>
+                    </button>
                 </div>
             </div>
         </header>
@@ -113,7 +109,7 @@ function carregarHeader() {
                 <li class="mobile-menu-item"><a href="#scroll-cursos">Nossos cursos</a></li>
                 <li class="mobile-menu-item"><a href="#diferenciais">Diferenciais</a></li>  
                 <li class="mobile-menu-item"><a href="#depoimento">Depoimentos</a></li>  
-                <li class="mobile-menu-item"><a href="quem-somos/" target="_blank">Quem somos</a></li>  
+                <li class="mobile-menu-item"><a href="quem-somos/">Quem somos</a></li>  
                 <li class="mobile-menu-item"><a href="paciente-modelo/">Paciente modelo</a></li>
             `;
     } else if (cursos) {
@@ -288,14 +284,14 @@ if (cards != null){
 const path = window.location.pathname;
 if (path == "/index.html" || path == "/"){
     document.addEventListener('DOMContentLoaded', function () {
-    if (window.innerWidth > 958){
+    if (window.innerWidth > 958 && !matchMedia('(prefers-reduced-motion: reduce)').matches){
         function switchBackground() {
             var background = document.querySelector(".background-content");
             var divTexto = document.getElementById('div-texto');
 
             var backgrounds = [
-                '../assets/background2.avif',
-                '../assets/background1.avif'  
+                'assets/background2.avif',
+                'assets/background1.avif'  
             ]
 //
             var textos = [
