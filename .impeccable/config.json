@@ -1,0 +1,53 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-13T05:26:37.605Z",
+        "reason": "model verified in Edge renders 1440/390: sections inset via .wrap min(1160px,100%-2rem) and .fatos clamp padding; static scan misses min()/clamp()"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "cursos/harmonizacao-facial/index.html"
+        ],
+        "createdAt": "2026-11-13T05:26:38.260Z",
+        "reason": "model verified in Edge renders 1440/390: sections inset via .wrap min(1160px,100%-2rem) and .fatos clamp padding; static scan misses min()/clamp()"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "cursos/perfiloplastia/index.html"
+        ],
+        "createdAt": "2026-11-13T05:26:39.026Z",
+        "reason": "model verified in Edge renders 1440/390: sections inset via .wrap min(1160px,100%-2rem) and .fatos clamp padding; static scan misses min()/clamp()"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "cursos/tricologia/index.html"
+        ],
+        "createdAt": "2026-11-13T05:26:39.880Z",
+        "reason": "model verified in Edge renders 1440/390: sections inset via .wrap min(1160px,100%-2rem) and .fatos clamp padding; static scan misses min()/clamp()"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "paciente-modelo/index.html"
+        ],
+        "createdAt": "2026-11-13T05:26:40.747Z",
+        "reason": "model verified in Edge renders 1440/390: sections inset via .wrap min(1160px,100%-2rem) and .fatos clamp padding; static scan misses min()/clamp()"
+      }
+    ]
+  }
+}

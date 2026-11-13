@@ -1,399 +1,233 @@
-window.onscroll = function () {
-    const botao = document.getElementById("voltar-topo");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-    botao.style.display = "flex";
-    } else {
-    botao.style.display = "none";
-    }
+// Cabeçalho, rodapé, WhatsApp e componentes compartilhados por todas as páginas.
+// Caminhos absolutos ("/") porque o site é servido na raiz de movemedical.com.br.
+
+const WHATSAPP_NUMERO = '5547996160560';
+const WHATSAPP_PADRAO = 'Olá! Gostaria de saber mais sobre os cursos da Move Medical.';
+const reduzirMovimento = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const pagina = document.body.dataset.pagina || 'pagina';
+const caminho = window.location.pathname;
+
+const MENUS = {
+    inicio: [
+        ['#cursos', 'Cursos'],
+        ['#diferenciais', 'Diferenciais'],
+        ['#depoimentos', 'Depoimentos'],
+        ['/quem-somos/', 'Quem somos'],
+        ['/paciente-modelo/', 'Paciente modelo'],
+    ],
+    curso: [
+        ['/', 'Início'],
+        ['#programa', 'Programa'],
+        ['#faq', 'Dúvidas'],
+        ['/quem-somos/', 'Quem somos'],
+        ['/paciente-modelo/', 'Paciente modelo'],
+    ],
+    paciente: [
+        ['#como-funciona', 'Como funciona'],
+        ['#faq', 'Dúvidas'],
+        ['/', 'Site da Move'],
+    ],
+    pagina: [
+        ['/', 'Início'],
+        ['/#cursos', 'Cursos'],
+        ['/quem-somos/', 'Quem somos'],
+        ['/paciente-modelo/', 'Paciente modelo'],
+    ],
 };
 
-// Função para voltar ao topo 
-function voltarAoTopo() {
-    window.scrollTo({
-    top: 0,
-    behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+const ICONE_WHATSAPP = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.018,17.048c-0.96,-1.484 -1.518,-3.253 -1.518,-5.151c0,-5.243 4.257,-9.5 9.5,-9.5c5.243,0 9.5,4.257 9.5,9.5c0,5.243 -4.257,9.5 -9.5,9.5c-1.777,0 -3.44,-0.489 -4.863,-1.339l-4.637,1.545l1.518,-4.555Z" fill="#f3f3f3"/><path d="M5.795,16.304c-0.886,-1.244 -1.407,-2.765 -1.407,-4.407c0,-4.201 3.411,-7.612 7.612,-7.612c4.201,0 7.612,3.411 7.612,7.612c0,4.201 -3.411,7.611 -7.612,7.611c-1.59,0 -3.066,-0.488 -4.288,-1.323l-2.862,0.954l0.945,-2.835Z" fill="#00a82d"/><path d="M9.714,13.873c-1.124,-1.374 -1.874,-3.056 -2.109,-4.88c-0.063,-0.508 0.106,-1.018 0.461,-1.387c0.355,-0.369 0.858,-0.558 1.368,-0.515l0.049,0.005c0,0 0.561,0.15 0.868,0.233c0.122,0.033 0.219,0.124 0.26,0.243c0.138,0.41 0.464,1.373 0.618,1.826c0.05,0.147 0.004,0.31 -0.114,0.41c-0.233,0.196 -0.618,0.52 -0.858,0.723c-0.129,0.109 -0.17,0.29 -0.1,0.443c0.279,0.608 0.635,1.176 1.057,1.69c0.434,0.502 0.933,0.949 1.485,1.327c0.14,0.095 0.325,0.085 0.454,-0.024c0.241,-0.202 0.626,-0.526 0.858,-0.722c0.119,-0.1 0.287,-0.117 0.424,-0.043c0.42,0.228 1.314,0.712 1.694,0.918c0.111,0.06 0.185,0.172 0.196,0.297c0.029,0.317 0.083,0.895 0.083,0.895l-0.004,0.049c-0.044,0.51 -0.315,0.974 -0.739,1.261c-0.424,0.288 -0.955,0.368 -1.445,0.22c-1.772,-0.545 -3.313,-1.581 -4.479,-2.937l-0.027,-0.032Z" fill="#f3f3f3"/></svg>`;
+
+function linkWhatsapp(mensagem) {
+    return `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagem || WHATSAPP_PADRAO)}`;
+}
+
+function carregarCabecalho() {
+    const itens = MENUS[pagina] || MENUS.pagina;
+    const links = itens.map(([href, texto]) => {
+        const atual = href.startsWith('/') && !href.includes('#') && href !== '/' && caminho.startsWith(href);
+        return `<li><a href="${href}"${atual ? ' aria-current="page"' : ''}>${texto}</a></li>`;
+    }).join('');
+
+    document.body.insertAdjacentHTML('afterbegin', `
+        <a class="pular-conteudo" href="#principal">Pular para o conteúdo</a>
+        <header class="site-header">
+            <a class="logo" href="/" aria-label="Move Medical, página inicial">
+                <img src="/assets/logo.png" alt="" width="500" height="500">
+            </a>
+            <button type="button" class="menu-botao" aria-expanded="false" aria-controls="menu-lista" aria-label="Abrir menu">
+                <span></span><span></span><span></span>
+            </button>
+            <nav aria-label="Principal">
+                <ul class="menu-lista" id="menu-lista">${links}</ul>
+            </nav>
+        </header>`);
+
+    const botao = document.querySelector('.menu-botao');
+    const lista = document.getElementById('menu-lista');
+    const alternar = (aberto) => {
+        botao.setAttribute('aria-expanded', aberto);
+        botao.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
+        lista.classList.toggle('aberto', aberto);
+    };
+    botao.addEventListener('click', () => alternar(botao.getAttribute('aria-expanded') !== 'true'));
+    lista.addEventListener('click', (e) => { if (e.target.closest('a')) alternar(false); });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lista.classList.contains('aberto')) { alternar(false); botao.focus(); }
     });
 }
 
-function fecharModal() {
-    var modal = document.getElementById('myModal');
-    modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-    var modal = document.getElementById('myModal');
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-
-function mobileMenuToggle(){
-    const menu = document.getElementById("mobile-menu-list")
-    const menuIcon = document.getElementById("menu-icon")
-    const aberto = menuIcon.classList.toggle("active")
-    menu.classList.toggle("active", aberto)
-    menuIcon.setAttribute("aria-expanded", aberto)
-    menuIcon.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu")
-}
-
-function carregarHeader() {
-    const pathname = window.location.pathname;
-    const pages = pathname.endsWith('paciente-modelo/') || pathname.endsWith('quem-somos/');
-    const cursos = ['tricologia/', 'perfiloplastia/', 'harmonizacao-facial/'].some(curso => pathname.endsWith(curso));
-    const imersao = pathname.endsWith('harmonizacao-facial/');
-    const politica = pathname.endsWith('politica/') || pathname.endsWith('politica');
-    const index = !(pages || cursos || imersao || politica);
-
-    let headerHTML = `
-        <header class="header"
-    `;
-
-    headerHTML += `>
-            <div>
-                <a`;
-    if (index) {
-        headerHTML += ` href=""`;
-    } else if (cursos) {
-        headerHTML += ` href="../../"`;
-    } else if (pages || politica) {
-        headerHTML += ` href="../"`;
-    }
-    headerHTML += `>
-                    <div class="logo" id="div-logo">
-                        <img src="../../assets/logo.png">
+function carregarRodape() {
+    const mensagem = document.body.dataset.whatsapp;
+    document.body.insertAdjacentHTML('beforeend', `
+        <footer class="site-footer">
+            <div class="wrap rodape-grid">
+                <div class="rodape-contato">
+                    <h2>Fale com a Move</h2>
+                    <p>Tire dúvidas sobre cursos, datas e inscrição direto com a nossa equipe.</p>
+                    <div class="acoes">
+                        <a class="botao botao-primario" data-whatsapp="${mensagem || ''}" href="${linkWhatsapp(mensagem)}">WhatsApp (47) 99616-0560</a>
+                        <a class="botao botao-contorno" href="mailto:contato@movemedical.com.br">contato@movemedical.com.br</a>
                     </div>
-                </a>
-            </div>
-            <div id="menu">
-                <ul>`;
-    if (index) {
-        headerHTML += `
-                    <li><a href="#scroll-cursos">Nossos cursos</a></li>
-                    <li><a href="#diferenciais">Diferenciais</a></li>  
-                    <li><a href="#depoimento">Depoimentos</a></li>  
-                    <li><a href="quem-somos/">Quem somos</a></li>  
-                    <li><a href="../paciente-modelo">Paciente modelo</a></li>
-                `;
-    } else if (cursos) {
-        headerHTML += `
-                    <li><a href="../../">Início</a></li>
-                    <li><a href="#conteudo-programatico">`;
-        headerHTML += !imersao ? `Conteúdo programático` : `Módulos`;
-        headerHTML += `</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="../../quem-somos/">Quem somos</a></li>  
-                    <li><a href="../../paciente-modelo/">Paciente modelo</a></li>
-                `;
-    } else {
-        headerHTML += `<li><a href="../">Início</a></li>`;
-        headerHTML += `<li><a href="../quem-somos">Quem somos</a></li>`;
-        headerHTML += `<li><a href="../paciente-modelo">Paciente Modelo</a></li>`;
-    }
-
-    headerHTML += `
+                </div>
+                <address class="rodape-endereco">
+                    Rua Miguel Matte, 687, Edifício Evolution Corporate<br>
+                    Bairro Pioneiros, Balneário Camboriú, SC, 88331-030
+                </address>
+                <ul class="rodape-redes" aria-label="Redes sociais">
+                    <li><a href="https://www.instagram.com/move.medical" target="_blank" rel="noopener" aria-label="Instagram da Move Medical">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
+                    </a></li>
+                    <li><a href="https://www.tiktok.com/@move.medical" target="_blank" rel="noopener" aria-label="TikTok da Move Medical">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c0 2.8 2.2 5 5 5"/></svg>
+                    </a></li>
+                    <li><a href="https://youtube.com/@movemedical-z5w" target="_blank" rel="noopener" aria-label="YouTube da Move Medical">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg>
+                    </a></li>
                 </ul>
-                <div class="mobile-menu" id="mobile-menu">
-                    <button type="button" class="menu-icon" id="menu-icon" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu-list" onclick="mobileMenuToggle()">
-                        <div class="block"></div>
-                        <div class="block"></div>
-                        <div class="block"></div>
-                    </button>
-                </div>
             </div>
-        </header>
-        <ul class="mobile-menu-list" id="mobile-menu-list">
-    `;
-
-    if (index) {
-        headerHTML += `
-                <li class="mobile-menu-item"><a href="#scroll-cursos">Nossos cursos</a></li>
-                <li class="mobile-menu-item"><a href="#diferenciais">Diferenciais</a></li>  
-                <li class="mobile-menu-item"><a href="#depoimento">Depoimentos</a></li>  
-                <li class="mobile-menu-item"><a href="quem-somos/">Quem somos</a></li>  
-                <li class="mobile-menu-item"><a href="paciente-modelo/">Paciente modelo</a></li>
-            `;
-    } else if (cursos) {
-        headerHTML += `
-                <li class="mobile-menu-item"><a href="../../">Início</a></li>
-                <li class="mobile-menu-item"><a href="../../quem-somos/">Quem somos</a></li>
-                <li class="mobile-menu-item"><a href="../../paciente-modelo/">Paciente Modelo</a></li>
-                <li class="mobile-menu-item"><a href="#conteudo-programatico">`;
-        headerHTML += !imersao ? `Conteúdo programático` : `Módulos`;
-        headerHTML += `</a></li>
-                <li class="mobile-menu-item"><a href="#faq">FAQ</a></li>
-            `;
-    } else {
-        headerHTML += `<li class="mobile-menu-item"><a href="../">Início</a></li>`;
-        headerHTML += `<li class="mobile-menu-item"><a href="../quem-somos/">Quem somos</a></li>`;
-        headerHTML += `<li class="mobile-menu-item"><a href="../paciente-modelo/">Paciente Modelo</a></li>`;
-    }
-
-    headerHTML += `</ul>`;
-
-    let element = document.querySelector('main');
-    let mudanca = false;
-    if (!element) {
-        element = document.body;
-        mudanca = true;
-    }
-    element.insertAdjacentHTML('afterbegin', headerHTML);
-
-    if (mudanca || cursos || imersao || politica) {
-        document.querySelector('header').style.backgroundColor = '#00244a';
-        document.querySelector('header').style.paddingLeft = '10px';
-        document.querySelector('header').style.paddingRight = '10px';
-        document.querySelector('header').style.height = '75px';
-        document.querySelector('#mobile-menu-list').style.marginTop = '75px';
-    }
-}
-
-function carregarFooter() {
-    const pathname = window.location.pathname;
-    const politica = pathname.endsWith('politica/') || pathname.endsWith('politica');
-
-    let footerHTML = `
-        <footer>
-            <center id="footer-titulo">
-                <div id="suporte">
-                    Contate o suporte
-                    <form>
-                        <input id="email" name="email" placeholder="E-mail" type="email">
-                        <input id="nome" name="nome" placeholder="Nome" type="text">
-                        <input id="mensagem" name="mensagem" placeholder="Mensagem" type="text"> 
-                        <button>Enviar</button>
-                    </form>
-                </div>
-                <hr>
-                <div class="informacoes">
-                    <div>Rua Miguel Matte, 687, Edifício Evolution Corporate<br class="mobile-no-display"><br>Bairro Pioneiros, Balneário Camboriú - SC, 88331 - 030<br><br>Telefone: +55 (47) 99616-0560<br class="mobile-no-display"><br>E-mail: contato@movemedical.com.br</div>
-                    <div>
-                        <center id="redes">
-                            <br>Redes sociais<br>
-                            <a style="text-decoration: none" href="https://www.instagram.com/move.medical" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 400" fill="#fff">
-                                    <path d="M349.33 69.33H162.67C108.45 69.33 69.33 108.45 69.33 162.67v186.66c0 54.22 39.12 93.34 93.34 93.34h186.66c54.22 0 93.34-39.12 93.34-93.34V162.67c0-54.22-39.12-93.34-93.34-93.34zM464 349.33c0 63.57-51.1 114.67-114.67 114.67H162.67C99.1 464 48 412.9 48 349.33V162.67C48 99.1 99.1 48 162.67 48h186.66C412.9 48 464 99.1 464 162.67v186.66z"/>
-                                    <path d="M256 144c-61.86 0-112 50.14-112 112s50.14 112 112 112 112-50.14 112-112-50.14-112-112-112zm0 186.67c-41.23 0-74.67-33.44-74.67-74.67s33.44-74.67 74.67-74.67 74.67 33.44 74.67 74.67-33.44 74.67-74.67 74.67z"/>
-                                    <circle cx="393.6" cy="118.4" r="17.07"/>
-                                </svg>
-                            </a> &nbsp;&nbsp;
-                            <a style="text-decoration: none" target="_blank" href="https://www.tiktok.com/@move.medical"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 200" fill="#ffffff">
-                                    <path d="M208 64c-17.67 0-32-14.33-32-32V16a8 8 0 0 0-8-8h-32a8 8 0 0 0-8 8v144a24 24 0 1 1-24-24 8 8 0 0 0 8-8V96a8 8 0 0 0-8-8 72 72 0 1 0 72 72v-57a64 64 0 0 0 32 8 8 8 0 0 0 8-8v-32a8 8 0 0 0-8-8z"/>
-                                </svg>
-                            </a> &nbsp;&nbsp;
-                            <a style="text-decoration: none; overflow: hidden; border-radius: 20px;" target="_blank" href="https://youtube.com/@movemedical-z5w">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="28" viewBox="0 0 100 70">
-                                    <defs>
-                                        <mask id="cutout">
-                                            <rect width="100" height="70" fill="white"/>
-                                            <polygon points="40,22 68,35 40,48" fill="black"/>
-                                        </mask>
-                                    </defs>
-                                    <rect width="100" height="70" rx="25" fill="#FFFFFF" mask="url(#cutout)"/>
-                                </svg>
-                            </a><br>
-                        </center>
-                        <center>
-    `;
-
-    if (politica) {
-        footerHTML += `     <a id="politica" href="" style="color: white;">Política de privacidade</a>`;
-    } else {
-        footerHTML += `     <a id="politica" href="../../politica/" style="color: white;">Política de privacidade</a>`;
-    }
-
-    footerHTML += `
-                        </center>
-                    </div>
-                    <br><div id="right-side-desktop">RESIMED LTDA<br  class="mobile-no-display"><br>CNPJ 46.976.124/0001-08<br></div><br>
-                </div>
-            </center>
+            <div class="wrap rodape-legal">
+                <span>RESIMED LTDA · CNPJ 46.976.124/0001-08</span>
+                <a href="/politica/"${caminho.startsWith('/politica') ? ' aria-current="page"' : ''}>Política de privacidade</a>
+            </div>
         </footer>
-    `;
+        <a class="whatsapp-flutuante" data-whatsapp="${mensagem || ''}" href="${linkWhatsapp(mensagem)}" aria-label="Conversar no WhatsApp">${ICONE_WHATSAPP}</a>
+        <button type="button" class="voltar-topo" aria-label="Voltar ao topo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        </button>`);
 
-    document.body.insertAdjacentHTML('beforeend', footerHTML);
+    const topo = document.querySelector('.voltar-topo');
+    topo.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduzirMovimento ? 'auto' : 'smooth' }));
+    const atualizarTopo = () => topo.classList.toggle('visivel', window.scrollY > 600);
+    window.addEventListener('scroll', atualizarTopo, { passive: true });
+    atualizarTopo();
 }
 
-carregarHeader();
-carregarFooter();
+// Todo link com data-whatsapp abre a conversa com a mensagem certa para a página.
+function prepararWhatsapp() {
+    document.querySelectorAll('[data-whatsapp]').forEach((link) => {
+        link.href = linkWhatsapp(link.dataset.whatsapp || document.body.dataset.whatsapp);
+        link.target = '_blank';
+        link.rel = 'noopener';
+    });
+}
 
-function alternarFAQ(event) {
-    const titulo = event.currentTarget;
-    const sinal = titulo.querySelector('.sinal');
-    const conteudo = titulo.nextElementSibling;
+// Vídeos que só carregam quando a pessoa pede (depoimentos e imersão).
+function prepararVideos() {
+    const cartoes = document.querySelectorAll('.video-cartao');
 
-    if (!sinal || !conteudo) return;
+    const resetar = (cartao) => {
+        const video = cartao.querySelector('video');
+        video.pause();
+        video.hidden = true;
+        cartao.querySelector('.video-play').hidden = false;
+        cartao.classList.remove('carregando');
+    };
 
-    const isAbrindo = !sinal.classList.contains('abrir');
+    cartoes.forEach((cartao) => {
+        const botao = cartao.querySelector('.video-play');
+        const video = cartao.querySelector('video');
+        const erro = cartao.querySelector('.video-erro');
 
-    sinal.classList.toggle('abrir', isAbrindo);
-    sinal.classList.toggle('fechar', !isAbrindo);
+        botao.addEventListener('click', () => {
+            cartoes.forEach((outro) => { if (outro !== cartao) resetar(outro); });
+            if (erro) erro.hidden = true;
+            botao.hidden = true;
+            video.hidden = false;
+            cartao.classList.add('carregando');
+            video.focus();
+            video.play().catch(() => {});
+        });
+        video.addEventListener('playing', () => cartao.classList.remove('carregando'));
+        video.addEventListener('ended', () => resetar(cartao));
+        video.addEventListener('error', () => {
+            resetar(cartao);
+            if (erro) erro.hidden = false;
+        }, true);
+    });
 
-    if (!isAbrindo) {
-        conteudo.classList.add('mostrar');
-        conteudo.classList.remove('oculto');
-    } else {
-        conteudo.classList.remove('mostrar');
+    return resetar;
+}
 
-        conteudo.addEventListener('transitionend', function handleTransitionEnd(e) {
-            if (e.propertyName === 'max-height') {
-                conteudo.classList.add('oculto');
-                conteudo.removeEventListener('transitionend', handleTransitionEnd);
-            }
+function prepararCarrosseis(resetarVideo) {
+    if (typeof Swiper === 'undefined') return;
+
+    if (document.querySelector('.carrossel-estrutura')) {
+        new Swiper('.carrossel-estrutura', {
+            loop: true,
+            grabCursor: true,
+            navigation: { nextEl: '.carrossel-estrutura .swiper-button-next', prevEl: '.carrossel-estrutura .swiper-button-prev' },
+            pagination: { el: '.carrossel-estrutura .swiper-pagination', clickable: true },
+        });
+    }
+
+    const grade = { 0: { slidesPerView: 1.15 }, 640: { slidesPerView: 2 }, 1050: { slidesPerView: 3 } };
+
+    if (document.querySelector('.carrossel-depoimentos')) {
+        const depoimentos = new Swiper('.carrossel-depoimentos', {
+            spaceBetween: 24,
+            grabCursor: true,
+            breakpoints: grade,
+            navigation: { nextEl: '.carrossel-depoimentos .swiper-button-next', prevEl: '.carrossel-depoimentos .swiper-button-prev' },
+        });
+        depoimentos.on('slideChange', () => document.querySelectorAll('.carrossel-depoimentos .video-cartao').forEach(resetarVideo));
+    }
+
+    if (document.querySelector('.carrossel-modelos')) {
+        new Swiper('.carrossel-modelos', {
+            spaceBetween: 24,
+            grabCursor: true,
+            // 2 por vez no desktop: fotos de antes e depois maiores e inteiras.
+            breakpoints: { 0: { slidesPerView: 1.08 }, 760: { slidesPerView: 2 } },
+            navigation: { nextEl: '.carrossel-modelos .swiper-button-next', prevEl: '.carrossel-modelos .swiper-button-prev' },
         });
     }
 }
 
-document.querySelectorAll('.titulo-faq').forEach(titulo => {
-    titulo.addEventListener('click', alternarFAQ);
+// Troca suave da foto de fundo na home. Só decorativa: o texto não muda.
+function alternarFundoHero() {
+    const imagem = document.querySelector('[data-fundos]');
+    if (!imagem || reduzirMovimento || window.innerWidth < 960) return;
+    const fundos = imagem.dataset.fundos.split(',');
+    fundos.forEach((src) => { new Image().src = src; });
+    let indice = 0;
+    setInterval(() => {
+        if (document.hidden) return;
+        imagem.style.opacity = 0;
+        setTimeout(() => {
+            indice = (indice + 1) % fundos.length;
+            imagem.src = fundos[indice];
+            imagem.style.opacity = 1;
+        }, 700);
+    }, 8000);
+}
+
+carregarCabecalho();
+carregarRodape();
+prepararWhatsapp();
+const resetarVideo = prepararVideos();
+
+document.addEventListener('DOMContentLoaded', () => {
+    prepararCarrosseis(resetarVideo);
+    alternarFundoHero();
 });
-
-// Script dos videos
-const cards = document.querySelectorAll('.card-depoimento') || null;
-
-if (cards != null){
-    cards.forEach(card => {
-        const img = card.querySelector('.imagem-depoimento');
-        const video = card.querySelector('.video-depoimento');
-
-        // Mostrar vídeo e tocar
-        img.addEventListener('click', () => {
-            // Pausa todos os outros vídeos
-            document.querySelectorAll('.video-depoimento').forEach(v => {
-                if (v !== video) {
-                    v.pause();
-                    v.style.display = 'none';
-                    const parent = v.closest('.card-depoimento');
-                    const siblingImg = parent.querySelector('.imagem-depoimento');
-                    if (siblingImg) siblingImg.style.display = 'block';
-                }
-            });
-
-            img.style.display = 'none';
-            video.style.display = 'block';
-            video.play();
-        });
-
-        // Pausar vídeo e voltar para imagem
-        video.addEventListener('click', () => {
-            video.pause();
-            video.style.display = 'none';
-            img.style.display = 'block';
-        });
-    });
-}
-
-const path = window.location.pathname;
-if (path == "/index.html" || path == "/"){
-    document.addEventListener('DOMContentLoaded', function () {
-    if (window.innerWidth > 958 && !matchMedia('(prefers-reduced-motion: reduce)').matches){
-        function switchBackground() {
-            var background = document.querySelector(".background-content");
-            var divTexto = document.getElementById('div-texto');
-
-            var backgrounds = [
-                'assets/background2.avif',
-                'assets/background1.avif'  
-            ]
-//
-            var textos = [
-                '<center class="texto" id="texto">A excelência é conquistada <br>através da prática constante</center>',
-                '<center class="texto" id="texto">Mova-se com a <span style="color: rgb(0, 213, 255)">Move</span></center><br>',
-            ]
-
-            var currentIndex = 0; 
-
-            function updateContent() {
-                background.style.opacity = 0;
-                divTexto.style.opacity = 0;
-
-                setTimeout(function() {
-                    currentIndex = (currentIndex + 1) % backgrounds.length; 
-                    background.src = backgrounds[currentIndex];
-                    divTexto.innerHTML = textos[currentIndex];
-
-                    background.style.opacity = 1;
-                    divTexto.style.opacity = 1;
-                }, 1000); 
-            }
-
-            setInterval(updateContent, 7000);
-        }
-        switchBackground()
-    }
-
-    const estruturaswiper = new Swiper('.swiper-estrutura', {
-        direction: 'horizontal',
-        grabCursor: true,
-        // centeredSlides: true,
-        loop: true,
-        slidesPerView: 1,
-        navigation: {
-            nextEl: '.estrutura-next',
-            prevEl: '.estrutura-prev',
-        },
-        pagination: {
-            el: '.estrutura-pagination',
-            clickable: true,
-        },
-    });
-    const swiper = new Swiper('.swiper', {
-        direction: 'horizontal',
-        grabCursor: true,
-        // centeredSlides: true,
-        loop: true,
-        slidesPerView: 3,
-        navigation: {
-            nextEl: '#swiper-button-next',
-            prevEl: '#swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-            breakpoints: {
-            0: {
-                slidesPerView: 1,
-            },
-            640: {
-                slidesPerView: 2,
-            },
-            1049: {
-                slidesPerView: 3,
-            },
-        },
-    });
-    const depoimentoswiper = new Swiper('.swiper-depoimento', {
-        direction: 'horizontal',
-        loop: true,
-        grabCursor: true,
-        centeredSlides: true,
-        
-        navigation: {
-            nextEl: '#depoimento-next',
-            prevEl: '#depoimento-prev',
-        },
-        spaceBetween: 30,
-        breakpoints: {
-            0: {
-                slidesPerView: 1,
-            },
-            640: {
-                slidesPerView: 2,
-            },
-            1049: {
-                slidesPerView: 3,
-            },
-            1388: {
-                slidesPerView: 3,
-            },
-        },
-    });
-    depoimentoswiper.on('slideChange', () => {
-        document.querySelectorAll('.video-depoimento').forEach(video => {
-            video.pause();
-            video.style.display = 'none';
-            const img = video.closest('.card-depoimento').querySelector('.imagem-depoimento');
-            if (img) img.style.display = 'block';
-        });
-        });
-    })
-}
