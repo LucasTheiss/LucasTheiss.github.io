@@ -172,8 +172,18 @@ function prepararVideos() {
 function prepararCarrosseis(resetarVideo) {
     if (typeof Swiper === 'undefined') return;
 
+    // Rótulos em português: o módulo a11y do Swiper troca os aria-label das setas pelos dele.
+    const a11y = (anterior, proximo) => ({
+        prevSlideMessage: anterior,
+        nextSlideMessage: proximo,
+        firstSlideMessage: 'Primeiro item',
+        lastSlideMessage: 'Último item',
+        paginationBulletMessage: 'Ir para o item {{index}}',
+    });
+
     if (document.querySelector('.carrossel-estrutura')) {
         new Swiper('.carrossel-estrutura', {
+            a11y: a11y('Foto anterior', 'Próxima foto'),
             loop: true,
             grabCursor: true,
             navigation: { nextEl: '.carrossel-estrutura .swiper-button-next', prevEl: '.carrossel-estrutura .swiper-button-prev' },
@@ -185,10 +195,12 @@ function prepararCarrosseis(resetarVideo) {
 
     if (document.querySelector('.carrossel-depoimentos')) {
         const depoimentos = new Swiper('.carrossel-depoimentos', {
+            a11y: a11y('Depoimento anterior', 'Próximo depoimento'),
             spaceBetween: 24,
             grabCursor: true,
             breakpoints: grade,
             navigation: { nextEl: '.carrossel-depoimentos .swiper-button-next', prevEl: '.carrossel-depoimentos .swiper-button-prev' },
+            pagination: { el: '.carrossel-depoimentos .swiper-pagination', clickable: true },
         });
         depoimentos.on('slideChange', () => document.querySelectorAll('.carrossel-depoimentos .video-cartao').forEach(resetarVideo));
     }
@@ -199,32 +211,55 @@ function prepararCarrosseis(resetarVideo) {
             grabCursor: true,
             // 2 por vez no desktop: fotos de antes e depois maiores e inteiras.
             breakpoints: { 0: { slidesPerView: 1.08 }, 760: { slidesPerView: 2 } },
+            a11y: a11y('Foto anterior', 'Próxima foto'),
             navigation: { nextEl: '.carrossel-modelos .swiper-button-next', prevEl: '.carrossel-modelos .swiper-button-prev' },
+            pagination: { el: '.carrossel-modelos .swiper-pagination', clickable: true },
         });
     }
 }
 
-// Troca suave da foto de fundo na home. Só decorativa: o texto não muda.
+// Troca suave da foto de fundo na home, junto com a frase do título (mesma ordem de data-fundos).
+// No celular e com movimento reduzido fica fixo em "Mova-se com a Move".
 function alternarFundoHero() {
     const imagem = document.querySelector('[data-fundos]');
     if (!imagem || reduzirMovimento || window.innerWidth < 960) return;
     const fundos = imagem.dataset.fundos.split(',');
+    const titulo = document.querySelector('.hero-frases');
+    const frases = titulo ? [...titulo.querySelectorAll('.hero-frase')] : [];
+    if (titulo) titulo.classList.add('rotativo');
     fundos.forEach((src) => { new Image().src = src; });
     let indice = 0;
     setInterval(() => {
         if (document.hidden) return;
         imagem.style.opacity = 0;
+        frases[indice]?.classList.remove('ativa');
         setTimeout(() => {
             indice = (indice + 1) % fundos.length;
             imagem.src = fundos[indice];
             imagem.style.opacity = 1;
+            frases[indice % frases.length]?.classList.add('ativa');
         }, 700);
     }, 8000);
+}
+
+// O WhatsApp flutuante some enquanto um botão de WhatsApp já está à vista (hero e rodapé),
+// para não cobrir botões nem textos no celular.
+function ocultarWhatsappFlutuante() {
+    const flutuante = document.querySelector('.whatsapp-flutuante');
+    const alvos = document.querySelectorAll('.hero, .curso-hero, .site-footer');
+    if (!flutuante || !alvos.length || !('IntersectionObserver' in window)) return;
+    const visiveis = new Set();
+    const observador = new IntersectionObserver((entradas) => {
+        entradas.forEach((e) => (e.isIntersecting ? visiveis.add(e.target) : visiveis.delete(e.target)));
+        flutuante.classList.toggle('oculto', visiveis.size > 0);
+    }, { threshold: 0.15 });
+    alvos.forEach((alvo) => observador.observe(alvo));
 }
 
 carregarCabecalho();
 carregarRodape();
 prepararWhatsapp();
+ocultarWhatsappFlutuante();
 const resetarVideo = prepararVideos();
 
 document.addEventListener('DOMContentLoaded', () => {
